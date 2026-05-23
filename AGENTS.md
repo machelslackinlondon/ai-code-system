@@ -69,4 +69,4 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 - `refactor.md`: behavior-preserving structure change.
 - `performance-optimization.md`: latency, throughput, memory, cost, or scalability.
 
-For project bootstrap, default to Node.js, Fastify, TypeScript, Tailwind CSS, Fly.io, Docker, Jest, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, MongoDB DAO, and PostgreSQL/MySQL DAO support. If `IS_MONOREPO=yes` and `SERVICES` is missing, ask before scaffolding.
+For project bootstrap, default to Node.js, Fastify, TypeScript, Tailwind CSS, Fly.io, Docker, Jest with coverage thresholds, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, MongoDB DAO, and PostgreSQL/MySQL DAO support. If `IS_MONOREPO=yes` and `SERVICES` is missing, ask before scaffolding.

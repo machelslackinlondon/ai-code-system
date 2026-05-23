@@ -471,7 +471,7 @@ For a new project scaffold:
 
 ```text
 Use AGENTS.md and runtime/active-task.md. Treat this as a project-bootstrap task.
-Default to Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest, GitHub Actions, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, MongoDB, and PostgreSQL/MySQL DAO support unless the task says otherwise.
+Default to Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest with coverage thresholds, GitHub Actions, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, MongoDB, and PostgreSQL/MySQL DAO support unless the task says otherwise.
 If this is a monorepo and services are not listed, ask for the service list before scaffolding.
 ```
 
@@ -529,10 +529,10 @@ DEPLOYMENT_TARGET:
 Fly.io
 
 DEFAULT_STACK:
-Node.js, Fastify, TypeScript, Tailwind, Docker, Jest, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, Fly.io, MongoDB DAO, PostgreSQL/MySQL DAO
+Node.js, Fastify, TypeScript, Tailwind, Docker, Jest with coverage thresholds, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, Fly.io, MongoDB DAO, PostgreSQL/MySQL DAO
 
 SCAFFOLD_REQUIREMENTS:
-Default to Node.js, Fastify, TypeScript, Tailwind, Docker, Jest, Cypress, Lighthouse web performance tests, k6 load tests, OpenTelemetry instrumentation, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, Fly.io deployment, MongoDB DAO, and PostgreSQL/MySQL DAO support.
+Default to Node.js, Fastify, TypeScript, Tailwind, Docker, Jest tests with coverage thresholds, Cypress, Lighthouse web performance tests, k6 load tests, OpenTelemetry instrumentation, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, Fly.io deployment, MongoDB DAO, and PostgreSQL/MySQL DAO support.
 
 EXPECTED_OUTPUT:
 Working scaffold, Docker setup, tests, performance testing scripts, observability dashboard setup, CI/CD workflow, Fly.io deployment config, and detailed README documentation for running and deploying the application.

@@ -13,6 +13,7 @@ Unless the active task or user request says otherwise, default to:
 - Deployment: Fly.io
 - Containerization: Docker
 - Unit/integration testing: Jest
+- Unit test coverage: Jest coverage with coverage thresholds
 - Automation/end-to-end testing: Cypress
 - Web performance testing: Lighthouse
 - Load testing: k6
@@ -41,6 +42,7 @@ If `IS_MONOREPO` is unknown, ask before scaffolding. If `IS_MONOREPO` is yes and
 - Include a DAO boundary that can support MongoDB and the selected SQL database without coupling business logic to driver-specific APIs.
 - Provide Dockerfiles and Docker Compose where useful for local development.
 - Include Jest configuration and sample tests.
+- Include Jest coverage scripts, coverage reports, and sensible starter thresholds.
 - Include a documented red-green-refactor workflow for application code.
 - Include Cypress configuration when the project includes a UI or browser automation surface.
 - Include Lighthouse-based web performance testing when the project includes a web UI or public web surface.
@@ -59,6 +61,7 @@ When `IS_MONOREPO` is yes:
 - Create a workspace structure appropriate for the repository tooling.
 - Keep shared code in a clearly named shared package only when at least two services need it.
 - Give each service its own README section, environment variables, Docker target, tests, and Fly.io deployment notes.
+- Give each service its own unit test coverage command and coverage threshold notes when applicable.
 - Give each service its own performance testing and observability notes when applicable.
 - Document how to run one service, all services, and dependency services locally.
 - Document whether services deploy as separate Fly.io apps or as one app.
@@ -71,6 +74,7 @@ When `IS_MONOREPO` is no:
 - Keep configuration local to the app.
 - Avoid workspace complexity unless explicitly requested.
 - Document local run, test, Docker, and Fly.io deployment commands for the single app.
+- Document local unit test coverage commands and report output paths for the single app.
 - Document local performance testing and observability commands for the single app when applicable.
 
 ## Persistence Expectations
@@ -90,6 +94,16 @@ When `IS_MONOREPO` is no:
 - Do not point load tests at production by default.
 - Document target URLs, environment variables, thresholds, and how to run performance tests locally and in CI.
 - Include optional GitHub Actions jobs for performance checks when they are fast and deterministic enough for CI.
+
+## Unit Coverage Expectations
+
+- Configure Jest coverage for unit and integration tests.
+- Include `test:coverage` or equivalent package scripts.
+- Generate text and machine-readable coverage reports where useful.
+- Add starter coverage thresholds that are realistic for a new scaffold and easy to raise over time.
+- Exclude generated files, build output, test fixtures, and configuration files from coverage.
+- Run coverage in GitHub Actions when feasible.
+- Document where coverage reports are written and how to interpret failures.
 
 ## Observability Expectations
 
@@ -112,6 +126,7 @@ The generated project README must include:
 - Local development commands
 - Docker and Docker Compose commands
 - Jest test commands
+- Jest coverage commands and report locations
 - TDD/red-green-refactor workflow
 - Cypress test commands, if applicable
 - Lighthouse web performance commands, if applicable
@@ -126,6 +141,7 @@ The generated project README must include:
 
 - Verify package scripts are coherent.
 - Run formatting, typecheck, lint, tests, or build checks when available.
+- Validate Jest coverage configuration and scripts by static inspection or command execution when feasible.
 - Validate performance test scripts and observability configuration by static inspection or dry run when feasible.
 - If dependencies cannot be installed or commands cannot run, explain why and validate by static inspection.
 - Confirm generated documentation matches the actual scaffold.
@@ -138,6 +154,7 @@ The generated project README must include:
 - Files created
 - Commands to run locally
 - Test and CI/CD summary
+- Unit coverage summary
 - Performance testing summary
 - Observability dashboard summary
 - Fly.io deployment summary

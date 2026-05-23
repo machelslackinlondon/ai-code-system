@@ -102,7 +102,7 @@ For saved prompts, use the templates in `prompts/`:
 
 Available task archetypes include bug fixes, feature builds, project bootstrapping, refactors, and performance optimization.
 
-The project-bootstrap task supports new single-project or monorepo scaffolds, with defaults for Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, MongoDB, and PostgreSQL/MySQL DAO support.
+The project-bootstrap task supports new single-project or monorepo scaffolds, with defaults for Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest with coverage thresholds, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, MongoDB, and PostgreSQL/MySQL DAO support.
 
 TDD is automated through `core/tdd-principles.md`. Agents load it only when the task changes behavior, fixes a bug, or needs characterization tests before refactoring.
 
@@ -257,10 +257,10 @@ INPUTS:
 Initial scaffold only.
 
 EXPECTED_OUTPUT:
-Working monorepo scaffold, Docker setup, Jest tests, Cypress setup, Lighthouse checks, k6 load test scaffold, OpenTelemetry hooks, Prometheus/Grafana/Loki local observability notes, GitHub Actions CI, Fly.io deployment docs, and detailed README.
+Working monorepo scaffold, Docker setup, Jest tests and coverage reports, Cypress setup, Lighthouse checks, k6 load test scaffold, OpenTelemetry hooks, Prometheus/Grafana/Loki local observability notes, GitHub Actions CI, Fly.io deployment docs, and detailed README.
 
 VALIDATION_PLAN:
-Validate scripts, TypeScript config, tests, Docker files, CI workflow, performance test commands, observability setup, and README instructions by running checks where dependencies are available.
+Validate scripts, TypeScript config, tests, Jest coverage config, Docker files, CI workflow, performance test commands, observability setup, and README instructions by running checks where dependencies are available.
 
 ROLLBACK_PLAN:
 Revert the scaffold commit or remove generated project files.
@@ -284,10 +284,10 @@ DEPLOYMENT_TARGET:
 Fly.io
 
 DEFAULT_STACK:
-Node.js, Fastify, TypeScript, Tailwind, Docker, Jest, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, Fly.io, MongoDB DAO, PostgreSQL DAO
+Node.js, Fastify, TypeScript, Tailwind, Docker, Jest with coverage thresholds, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, Fly.io, MongoDB DAO, PostgreSQL DAO
 
 SCAFFOLD_REQUIREMENTS:
-Default to Node.js, Fastify, TypeScript, Tailwind, Docker, Jest, Cypress, Lighthouse web performance tests, k6 load tests, OpenTelemetry instrumentation, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, Fly.io deployment, MongoDB DAO, and PostgreSQL DAO support.
+Default to Node.js, Fastify, TypeScript, Tailwind, Docker, Jest tests with coverage thresholds, Cypress, Lighthouse web performance tests, k6 load tests, OpenTelemetry instrumentation, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, Fly.io deployment, MongoDB DAO, and PostgreSQL DAO support.
 ```
 
 ## Adding New Task Types
