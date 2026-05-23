@@ -588,3 +588,15 @@ Keep these rules in mind when editing the system:
 3. Use `runtime/session-notes.md` for tasks that span multiple prompts.
 4. Ask the agent to follow `AGENTS.md`.
 5. Work one task at a time.
+
+## Low-Token Mode
+
+For normal coding tasks, tell the agent:
+
+```text
+Use AGENTS.md in low-token mode.
+Load only the required core files, one task layer, and the active task source.
+Do not load README.md, USING-WITH-VSCODE.md, every task file, or optional core modules unless needed.
+```
+
+This keeps the active context small while preserving the same rules.

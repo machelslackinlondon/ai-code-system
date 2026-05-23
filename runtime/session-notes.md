@@ -1,29 +1,24 @@
 # Session Notes
 
-Use this file to preserve context between prompts.
+Keep concise. Update before finishing when context should survive the next prompt.
 
-## Current Goal
+## Goal
 
 Unknown
 
-## Current Task Source
+## Source
 
-- `runtime/active-task.md`
-- AI extension UI placeholders
+Unknown
 
-## Decisions Made
-
-- Unknown
-
-## Files Changed
+## Decisions
 
 - Unknown
 
-## Validation Run
+## Changed
 
 - Unknown
 
-## Open Questions
+## Validation
 
 - Unknown
 
@@ -31,14 +26,11 @@ Unknown
 
 - Unknown
 
-## Risks / Constraints
+## Risks
 
 - Unknown
 
-## Next Prompt Should
+## Next
 
-- Continue from these notes.
-- Read `AGENTS.md`.
-- Read the active task source.
-- Update this file before finishing if decisions, files, validation, risks, or open items change.
+- Unknown
 

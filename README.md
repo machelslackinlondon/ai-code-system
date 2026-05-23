@@ -104,6 +104,30 @@ Available task archetypes include bug fixes, feature builds, project bootstrappi
 
 The project-bootstrap task supports new single-project or monorepo scaffolds, with defaults for Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, MongoDB, and PostgreSQL/MySQL DAO support.
 
+## Low-Token Use
+
+For day-to-day agent work, load only:
+
+```text
+AGENTS.md
+core/rules.md
+core/engineering-principles.md
+core/output-format.md
+one relevant tasks/*.md file
+runtime/active-task.md or prompt placeholders
+runtime/session-notes.md only when continuing work
+```
+
+Do not load `README.md`, `USING-WITH-VSCODE.md`, every task file, or optional core files unless the task requires them.
+
+Low-token prompt:
+
+```text
+Use AGENTS.md in low-token mode.
+Load only the required core files, one task layer, and the active task source.
+Use runtime/session-notes.md only if continuing previous work.
+```
+
 ## Recommended Session Prompt
 
 ```text
