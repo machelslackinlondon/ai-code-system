@@ -39,6 +39,12 @@ VALIDATION_PLAN:
 
 ROLLBACK_PLAN:
 
+TDD_MODE:
+
+- auto
+- required
+- skip
+
 ## Project Bootstrap Fields
 
 Use these fields when `TASK_TYPE` is `project-bootstrap`.
@@ -75,5 +81,6 @@ SCAFFOLD_REQUIREMENTS:
 - `NON_GOALS` prevents unrelated expansion.
 - `VALIDATION_PLAN` should name tests, checks, manual verification, or the reason validation is not available.
 - `ROLLBACK_PLAN` is required for medium/high-impact changes.
+- `TDD_MODE` defaults to `auto`. Use `required` to force red-green-refactor when feasible, or `skip` only when tests are impractical or out of scope.
 - For `project-bootstrap`, `IS_MONOREPO` must be known before scaffolding. If it is `yes`, `SERVICES` must list each service/package to create.
 - For `project-bootstrap`, default to Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest, GitHub Actions, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, MongoDB, and PostgreSQL/MySQL DAO support unless overridden.

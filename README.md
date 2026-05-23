@@ -104,6 +104,8 @@ Available task archetypes include bug fixes, feature builds, project bootstrappi
 
 The project-bootstrap task supports new single-project or monorepo scaffolds, with defaults for Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, GitHub Actions, MongoDB, and PostgreSQL/MySQL DAO support.
 
+TDD is automated through `core/tdd-principles.md`. Agents load it only when the task changes behavior, fixes a bug, or needs characterization tests before refactoring.
+
 ## Low-Token Use
 
 For day-to-day agent work, load only:
@@ -113,6 +115,7 @@ AGENTS.md
 core/rules.md
 core/engineering-principles.md
 core/output-format.md
+core/tdd-principles.md when behavior changes or coverage is weak
 one relevant tasks/*.md file
 runtime/active-task.md or prompt placeholders
 runtime/session-notes.md only when continuing work
@@ -192,6 +195,9 @@ VALIDATION_PLAN:
 
 ROLLBACK_PLAN:
 {{ROLLBACK_PLAN}}
+
+TDD_MODE:
+{{TDD_MODE}}
 
 Project bootstrap fields, if TASK_TYPE is project-bootstrap:
 

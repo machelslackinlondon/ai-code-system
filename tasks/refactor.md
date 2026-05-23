@@ -3,6 +3,7 @@
 Use this task layer when the primary goal is to improve structure, readability, maintainability, or testability while preserving behavior.
 
 Also apply `core/refactoring-principles.md`.
+Apply `core/tdd-principles.md` when coverage is missing or behavior preservation is uncertain.
 
 ## Required Behavior
 

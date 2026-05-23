@@ -8,6 +8,7 @@ Load only what is needed:
 
 1. Always: `core/rules.md`, `core/engineering-principles.md`, `core/output-format.md`
 2. Conditional:
+   - TDD/behavior changes: `core/tdd-principles.md`
    - Refactor work: `core/refactoring-principles.md`
    - Architecture/design pattern decisions: `core/design-patterns.md`
 3. One task layer:
@@ -44,7 +45,7 @@ Task layers may specialize behavior but must not weaken core safety rules.
 
 ## Active Task Fields
 
-Standard fields: `TASK_NAME`, `TASK_TYPE`, `TASK_DESCRIPTION`, `IMPACT_LEVEL`, `AFFECTED_SYSTEMS`, `RELATED_FILES`, `CONSTRAINTS`, `NON_GOALS`, `INPUTS`, `EXPECTED_OUTPUT`, `VALIDATION_PLAN`, `ROLLBACK_PLAN`.
+Standard fields: `TASK_NAME`, `TASK_TYPE`, `TASK_DESCRIPTION`, `IMPACT_LEVEL`, `AFFECTED_SYSTEMS`, `RELATED_FILES`, `CONSTRAINTS`, `NON_GOALS`, `INPUTS`, `EXPECTED_OUTPUT`, `VALIDATION_PLAN`, `ROLLBACK_PLAN`, `TDD_MODE`.
 
 Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`, `DEPLOYMENT_TARGET`, `DEFAULT_STACK`, `SCAFFOLD_REQUIREMENTS`.
 
@@ -56,6 +57,7 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 - Avoid unrelated refactors.
 - Follow repository conventions.
 - Run targeted validation when feasible.
+- Use TDD for bug fixes, behavior-changing features, and refactors with weak coverage when feasible.
 - Report changes, validation, and residual risk.
 - Update `runtime/session-notes.md` before finishing when continuity matters.
 
@@ -68,4 +70,3 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 - `performance-optimization.md`: latency, throughput, memory, cost, or scalability.
 
 For project bootstrap, default to Node.js, Fastify, TypeScript, Tailwind CSS, Fly.io, Docker, Jest, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, MongoDB DAO, and PostgreSQL/MySQL DAO support. If `IS_MONOREPO=yes` and `SERVICES` is missing, ask before scaffolding.
-

@@ -4,6 +4,7 @@ Use this task layer when the requested work is to diagnose and correct broken, i
 
 ## Required Behavior
 
+- Apply `core/tdd-principles.md` when a regression test is feasible.
 - Identify the observed failure before changing code when feasible.
 - Reproduce the issue or locate the failing path using tests, logs, code inspection, or a minimal scenario.
 - Prefer the smallest change that addresses the root cause.

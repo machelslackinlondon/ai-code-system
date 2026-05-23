@@ -4,6 +4,7 @@ Use this task layer when adding new behavior, capability, endpoint, UI, workflow
 
 ## Required Behavior
 
+- Apply `core/tdd-principles.md` when the feature changes testable behavior.
 - Clarify the intended user or system outcome before implementation.
 - Inspect existing patterns before adding new abstractions, dependencies, or conventions.
 - Keep the first implementation scoped to the requested feature.

@@ -41,6 +41,7 @@ If `IS_MONOREPO` is unknown, ask before scaffolding. If `IS_MONOREPO` is yes and
 - Include a DAO boundary that can support MongoDB and the selected SQL database without coupling business logic to driver-specific APIs.
 - Provide Dockerfiles and Docker Compose where useful for local development.
 - Include Jest configuration and sample tests.
+- Include a documented red-green-refactor workflow for application code.
 - Include Cypress configuration when the project includes a UI or browser automation surface.
 - Include Lighthouse-based web performance testing when the project includes a web UI or public web surface.
 - Include k6 load testing scaffolding for API, service, or user-flow load tests where useful.
@@ -111,6 +112,7 @@ The generated project README must include:
 - Local development commands
 - Docker and Docker Compose commands
 - Jest test commands
+- TDD/red-green-refactor workflow
 - Cypress test commands, if applicable
 - Lighthouse web performance commands, if applicable
 - k6 load test commands, if applicable

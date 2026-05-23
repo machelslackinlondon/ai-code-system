@@ -45,6 +45,7 @@ core/
   rules.md
   engineering-principles.md
   output-format.md
+  tdd-principles.md
   refactoring-principles.md
   design-patterns.md
 
@@ -83,6 +84,8 @@ They tell the agent to:
 - classify impact before implementation
 
 These files should be stable and rarely changed.
+
+`core/tdd-principles.md` is loaded only when the task changes behavior, fixes a bug, or needs characterization tests before refactoring.
 
 ### 2. Task Layer
 
