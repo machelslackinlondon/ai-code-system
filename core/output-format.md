@@ -80,6 +80,7 @@ Before committing or presenting changes as complete:
 As you work, explain:
 
 - What problem you are solving
+- What you are building
 - Why you chose the approach, including trade-offs
 - What you validated and how
 - Surprises or blockers encountered
