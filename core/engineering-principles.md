@@ -5,6 +5,18 @@
 - Decompose tasks into explicit steps when complexity justifies it
 - Apply reasoning proportional to change impact (avoid over-analysis of trivial tasks)
 
+## Stage 8 - Prioritisation & Time Management
+
+Work systematically:
+
+- Tackle highest-impact work first
+- Do not over-engineer the initial solution
+- Validate frequently to catch issues early
+- Adjust scope if time, risk, or uncertainty is tight
+- Communicate progress and trade-offs
+
+Prefer useful, validated increments over broad unfinished work.
+
 ## Distributed Systems Awareness
 
 - Explicitly evaluate trade-offs between consistency, availability, latency, and correctness for system-affecting changes

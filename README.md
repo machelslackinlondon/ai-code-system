@@ -106,6 +106,8 @@ The project-bootstrap task supports new single-project or monorepo scaffolds, wi
 
 TDD is automated through `core/tdd-principles.md`. Agents load it only when the task changes behavior, fixes a bug, or needs characterization tests before refactoring.
 
+Assessment alignment is available through `core/assessment-alignment.md` for review/audit tasks. It is not loaded by default.
+
 ## Low-Token Use
 
 For day-to-day agent work, load only:
@@ -115,7 +117,9 @@ AGENTS.md
 core/rules.md
 core/engineering-principles.md
 core/output-format.md
+core/problem-understanding.md
 core/tdd-principles.md when behavior changes or coverage is weak
+core/assessment-alignment.md only for review/audit tasks
 one relevant tasks/*.md file
 runtime/active-task.md or prompt placeholders
 runtime/session-notes.md only when continuing work

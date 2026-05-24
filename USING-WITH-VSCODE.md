@@ -45,7 +45,9 @@ core/
   rules.md
   engineering-principles.md
   output-format.md
+  problem-understanding.md
   tdd-principles.md
+  assessment-alignment.md
   refactoring-principles.md
   design-patterns.md
 
@@ -85,7 +87,61 @@ They tell the agent to:
 
 These files should be stable and rarely changed.
 
+`core/problem-understanding.md` requires a short plan plus risks/unknowns before non-trivial or medium/high-impact implementation.
+
 `core/tdd-principles.md` is loaded only when the task changes behavior, fixes a bug, or needs characterization tests before refactoring.
+
+`core/assessment-alignment.md` is loaded only for review/audit tasks to check problem-solving, AI fluency, code quality, communication, and delivery.
+
+## Prompting The Agent Effectively
+
+Some guidance is for the human using the AI extension, not only for the agent. Use this when starting or refining a task.
+
+Provide clear context:
+
+- What you are building and why.
+- Constraints and requirements.
+- Relevant code snippets or file paths.
+- Expected output format.
+
+Ask specific questions:
+
+- Prefer "design a function that does X under constraint Y" over broad prompts.
+- Request trade-off discussion when uncertain.
+- Ask for alternatives when there are meaningful choices.
+
+Review output critically:
+
+- Read generated code before accepting it.
+- Check for errors, edge cases, and style issues.
+- Verify it matches your constraints.
+- Adjust the prompt and retry if needed.
+
+Never:
+
+- Accept code without reading it.
+- Assume the AI understands your domain.
+- Skip validation.
+
+## Human Guardrails Checklist
+
+Use this before accepting generated code or ending a task.
+
+Never:
+
+- Accept code without reading it.
+- Skip validation.
+- Hide failures or debugging.
+- Assume AI is correct.
+- Over-engineer before validating.
+
+Always:
+
+- Validate early and often.
+- Communicate clearly.
+- Think before prompting.
+- Sanity-check suggestions.
+- Iterate with purpose.
 
 ### 2. Task Layer
 

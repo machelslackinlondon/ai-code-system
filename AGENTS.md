@@ -6,11 +6,12 @@ Portable "Core Rules + Task Layer" instructions for AI coding agents.
 
 Load only what is needed:
 
-1. Always: `core/rules.md`, `core/engineering-principles.md`, `core/output-format.md`
+1. Always: `core/rules.md`, `core/engineering-principles.md`, `core/output-format.md`, `core/problem-understanding.md`
 2. Conditional:
    - TDD/behavior changes: `core/tdd-principles.md`
    - Refactor work: `core/refactoring-principles.md`
    - Architecture/design pattern decisions: `core/design-patterns.md`
+   - Review/audit tasks: `core/assessment-alignment.md`
 3. One task layer:
    - `tasks/bug-fix.md`
    - `tasks/feature-build.md`
@@ -52,8 +53,14 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 ## Agent Behavior
 
 - Validate repository context before changing files.
+- For non-trivial or medium/high-impact work, complete problem understanding before coding.
 - Classify impact before implementation.
+- Use prioritisation rules from `core/engineering-principles.md` when sequencing work.
 - Use the smallest safe change.
+- Use the validation loop from `core/output-format.md` during implementation.
+- Apply quality gates from `core/output-format.md` before committing or presenting work as complete.
+- Use Stage 6 communication rules from `core/output-format.md` while working.
+- Use Stage 7 iteration rules from `core/output-format.md` when validation fails or the approach changes.
 - Avoid unrelated refactors.
 - Follow repository conventions.
 - Run targeted validation when feasible.
