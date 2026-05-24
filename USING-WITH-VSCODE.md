@@ -57,6 +57,7 @@ tasks/
   project-bootstrap.md
   refactor.md
   performance-optimization.md
+  risk-discovery.md
   task-schema.md
   task-template.md
 
@@ -154,6 +155,7 @@ Use one task layer per task:
 - `project-bootstrap.md` for scaffolding new projects, apps, services, packages, or monorepos
 - `refactor.md` for behavior-preserving structural improvement
 - `performance-optimization.md` for latency, throughput, memory, cost, or scalability work
+- `risk-discovery.md` for non-functional risk assessment, mitigation strategies, data consistency, and availability review
 
 The task layer should specialize the workflow, not override the core rules.
 
@@ -579,6 +581,47 @@ For performance work:
 Use AGENTS.md and runtime/active-task.md. Treat this as a performance-optimization task and validate with measurements where feasible.
 ```
 
+For risk discovery:
+
+```text
+Use AGENTS.md and runtime/active-task.md. Treat this as a risk-discovery task.
+Inspect non-functional limitations only; do not implement fixes.
+Scope the assessment to the current repository/workspace only unless I provide external architecture context.
+Do not infer risks from systems that are not present in the repo or described by me.
+Output a risk register with evidence, severity, mitigation strategies, recommended actions, and follow-up tasks.
+Include design-for-failure, data consistency, and availability analysis.
+```
+
+Contained risk discovery prompt:
+
+```text
+Use AGENTS.md in low-token mode.
+Treat this as a risk-discovery task.
+
+Assess only the current repository/workspace.
+Do not implement fixes.
+Do not infer external architecture, production topology, or hidden services.
+Use `Unknown` for missing context.
+
+For each finding, cite evidence from repository files, configuration, observed behavior, or explicit context I provided.
+
+Focus on:
+- performance and scalability
+- reliability and designing for failure
+- data consistency and availability
+- security and secrets
+- observability
+- CI/CD and deployment safety
+- local development and test coverage
+
+Output:
+- executive summary
+- risk register
+- assumptions and unknowns
+- mitigation strategies
+- prioritized follow-up tasks
+```
+
 ## How To Choose The Task Type
 
 Choose the task type based on the dominant risk:
@@ -588,6 +631,7 @@ Choose the task type based on the dominant risk:
 - If a new project, app, service, package, or monorepo is being created, use `project-bootstrap`.
 - If behavior must stay the same while structure improves, use `refactor`.
 - If resource usage, latency, throughput, or cost is the main concern, use `performance-optimization`.
+- If the goal is to uncover non-functional limitations and follow-up actions, use `risk-discovery`.
 
 When a task overlaps categories, choose the one with the highest operational risk. For example, fixing a production performance regression should use `performance-optimization`, even if it also involves refactoring. Creating a new service inside an existing monorepo should use `project-bootstrap`, then apply feature-build behavior inside that scaffold.
 

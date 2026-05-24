@@ -100,7 +100,7 @@ For saved prompts, use the templates in `prompts/`:
 3. Pick one matching task archetype from `tasks/`.
 4. Ask the coding agent to follow `AGENTS.md`.
 
-Available task archetypes include bug fixes, feature builds, project bootstrapping, refactors, and performance optimization.
+Available task archetypes include bug fixes, feature builds, project bootstrapping, refactors, performance optimization, and risk discovery.
 
 The project-bootstrap task supports new single-project or monorepo scaffolds. See `tasks/project-bootstrap.md` for the default stack and scaffold expectations.
 
@@ -109,6 +109,8 @@ For project-bootstrap placeholder workflows, set `REQUIRES_PRE_SCAFFOLD_APPROVAL
 TDD is automated through `core/tdd-principles.md`. Agents load it only when the task changes behavior, fixes a bug, or needs characterization tests before refactoring.
 
 Assessment alignment is available through `core/assessment-alignment.md` for review/audit tasks. It is not loaded by default.
+
+Use `tasks/risk-discovery.md` when you want a non-functional risk register with mitigation strategies, including design-for-failure, data consistency, and availability analysis.
 
 ## Low-Token Use
 
@@ -162,6 +164,18 @@ Use this repository's AGENTS.md prompt system.
 Use the active task details from runtime/active-task.md or the placeholders in this prompt.
 Use runtime/session-notes.md as continuity context.
 Before finishing, update runtime/session-notes.md with decisions, changed files, validation, open questions, open items, risks, and next steps.
+```
+
+Risk discovery prompt:
+
+```text
+Use AGENTS.md in low-token mode.
+Treat this as a risk-discovery task.
+Assess only the current repository/workspace unless I provide external architecture context.
+Inspect non-functional limitations only; do not implement fixes.
+Do not infer hidden systems; use Unknown for missing context.
+Output a risk register with repo-backed evidence, severity, mitigation strategies, recommended actions, and follow-up tasks.
+Include design-for-failure, data consistency, and availability analysis.
 ```
 
 Example placeholder session prompt:

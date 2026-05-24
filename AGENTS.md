@@ -18,6 +18,7 @@ Load only what is needed:
    - `tasks/project-bootstrap.md`
    - `tasks/refactor.md`
    - `tasks/performance-optimization.md`
+   - `tasks/risk-discovery.md`
 4. Active task source:
    - placeholders from the current prompt, or
    - `runtime/active-task.md`
@@ -79,5 +80,6 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 - `project-bootstrap.md`: new project, app, service, package, or monorepo.
 - `refactor.md`: behavior-preserving structure change.
 - `performance-optimization.md`: latency, throughput, memory, cost, or scalability.
+- `risk-discovery.md`: inspect non-functional limitations and produce a risk register with mitigations.
 
 For project bootstrap defaults, use `tasks/project-bootstrap.md` as source of truth. If `IS_MONOREPO=yes` and `SERVICES` is missing, ask before scaffolding.

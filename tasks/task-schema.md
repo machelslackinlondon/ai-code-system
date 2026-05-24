@@ -13,6 +13,7 @@ TASK_TYPE:
 - project-bootstrap
 - refactor
 - performance-optimization
+- risk-discovery
 - other
 
 TASK_DESCRIPTION:
@@ -132,6 +133,39 @@ INCLUDE_OBSERVABILITY:
 - no
 - auto
 
+## Risk Discovery Fields
+
+Use these fields when `TASK_TYPE` is `risk-discovery`.
+
+RISK_AREAS:
+
+RISK_SEVERITY_THRESHOLD:
+
+- low
+- medium
+- high
+- all
+
+INCLUDE_MITIGATION_STRATEGIES:
+
+- yes
+- no
+
+INCLUDE_DATA_CONSISTENCY_ANALYSIS:
+
+- yes
+- no
+
+INCLUDE_AVAILABILITY_ANALYSIS:
+
+- yes
+- no
+
+INCLUDE_DESIGN_FOR_FAILURE_REVIEW:
+
+- yes
+- no
+
 ## Field Rules
 
 - `TASK_DESCRIPTION` must describe the desired outcome, not only the implementation idea.
@@ -149,3 +183,5 @@ INCLUDE_OBSERVABILITY:
 - For `project-bootstrap`, `CREATE_NVMRC` defaults to `yes`, and `SWITCH_NODE_BEFORE_INSTALL` defaults to `yes` when local tooling supports it.
 - For `project-bootstrap`, `REQUIRES_PRE_SCAFFOLD_APPROVAL` defaults to `auto`; treat `auto` as `yes` for monorepos and medium/high-impact scaffolds.
 - For `project-bootstrap`, `INCLUDE_*` fields default to `auto`; use task description and constraints to decide, then explain included/skipped options in the pre-scaffold proposal.
+- For `risk-discovery`, do not implement fixes unless explicitly requested.
+- For `risk-discovery`, default `INCLUDE_MITIGATION_STRATEGIES`, `INCLUDE_DATA_CONSISTENCY_ANALYSIS`, `INCLUDE_AVAILABILITY_ANALYSIS`, and `INCLUDE_DESIGN_FOR_FAILURE_REVIEW` to `yes`.
