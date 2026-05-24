@@ -71,6 +71,27 @@ DEFAULT_STACK:
 
 SCAFFOLD_REQUIREMENTS:
 
+NODE_VERSION_POLICY:
+
+- latest-lts
+- explicit
+- repo-existing
+- unknown
+
+NODE_VERSION:
+
+CREATE_NVMRC:
+
+- yes
+- no
+- auto
+
+SWITCH_NODE_BEFORE_INSTALL:
+
+- yes
+- no
+- auto
+
 REQUIRES_PRE_SCAFFOLD_APPROVAL:
 
 - yes
@@ -124,5 +145,7 @@ INCLUDE_OBSERVABILITY:
 - `TDD_MODE` defaults to `auto`. Use `required` to force red-green-refactor when feasible, or `skip` only when tests are impractical or out of scope.
 - For `project-bootstrap`, `IS_MONOREPO` must be known before scaffolding. If it is `yes`, `SERVICES` must list each service/package to create.
 - For `project-bootstrap`, use `tasks/project-bootstrap.md` as the source of truth for default stack and scaffold expectations.
+- For `project-bootstrap`, `NODE_VERSION_POLICY` defaults to `latest-lts`; verify the current active LTS version at scaffold time before creating `.nvmrc`.
+- For `project-bootstrap`, `CREATE_NVMRC` defaults to `yes`, and `SWITCH_NODE_BEFORE_INSTALL` defaults to `yes` when local tooling supports it.
 - For `project-bootstrap`, `REQUIRES_PRE_SCAFFOLD_APPROVAL` defaults to `auto`; treat `auto` as `yes` for monorepos and medium/high-impact scaffolds.
 - For `project-bootstrap`, `INCLUDE_*` fields default to `auto`; use task description and constraints to decide, then explain included/skipped options in the pre-scaffold proposal.

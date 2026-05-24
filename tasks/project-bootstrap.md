@@ -7,6 +7,8 @@ Use this task layer when creating, scaffolding, or standardizing a new project, 
 Unless the active task or user request says otherwise, default to:
 
 - Runtime: Node.js
+- Node version policy: latest active LTS unless overridden
+- Node version file: `.nvmrc`
 - API framework: Fastify
 - Language: TypeScript
 - Styling: Tailwind CSS
@@ -31,6 +33,7 @@ Unless the active task or user request says otherwise, default to:
 - Deployment target and Fly.io app naming strategy
 - `REQUIRES_PRE_SCAFFOLD_APPROVAL`: yes by default for monorepos and medium/high-impact scaffolds
 - Optional capability toggles: `INCLUDE_CI_CD`, `INCLUDE_DEPLOYMENT`, `INCLUDE_DOCKER`, `INCLUDE_DATABASES`, `INCLUDE_OBSERVABILITY`
+- Node version controls: `NODE_VERSION_POLICY`, `NODE_VERSION`, `CREATE_NVMRC`, `SWITCH_NODE_BEFORE_INSTALL`
 
 If `IS_MONOREPO` is unknown, ask before scaffolding. If `IS_MONOREPO` is yes and `SERVICES` is missing, ask for the service list before creating files.
 
@@ -47,6 +50,7 @@ The proposal must include:
 - Alternatives considered, when meaningful
 - Database choice and DAO strategy
 - CI/CD, deployment, Docker, database, and observability options included or skipped
+- Node version selected and how it will be enforced locally and in CI/CD
 - Testing, coverage, performance, and observability strategy
 - Deployment strategy
 - Assumptions
@@ -75,6 +79,17 @@ Do not scaffold until the proposal is accepted or the user explicitly asks to pr
 - Include GitHub Actions workflow for install, lint/typecheck, test, build, and Docker validation where feasible.
 - Include Fly.io configuration and deployment instructions.
 - Generate detailed README documentation for local development, testing, performance testing, observability, Docker, CI/CD, and deployment.
+
+## Node Version Expectations
+
+- Use latest active LTS Node.js by default unless the task specifies a version.
+- When `NODE_VERSION_POLICY=latest-lts`, verify the current active LTS Node version at scaffold time before writing version files.
+- Create `.nvmrc` with the selected Node version by default unless disabled.
+- If a repo already has Node version tooling, follow the repo convention.
+- Before installing dependencies, generating lockfiles, or running Node commands, switch local Node to the project version when possible.
+- Prefer `nvm use` when `.nvmrc` is present and `nvm` is available.
+- If switching is not possible, report the current Node version, expected Node version, and risk before continuing.
+- Document the required Node version and setup command in the generated README.
 
 ## Monorepo Behavior
 
@@ -145,6 +160,7 @@ The generated project README must include:
 - Architecture and folder structure
 - Monorepo service list, if applicable
 - Prerequisites
+- Required Node.js version and `.nvmrc` usage
 - Environment variables
 - Local development commands
 - Docker and Docker Compose commands
@@ -163,6 +179,7 @@ The generated project README must include:
 ## Validation Expectations
 
 - Verify package scripts are coherent.
+- Verify `.nvmrc` and Node version documentation are coherent.
 - Run formatting, typecheck, lint, tests, or build checks when available.
 - Validate Jest coverage configuration and scripts by static inspection or command execution when feasible.
 - Validate performance test scripts and observability configuration by static inspection or dry run when feasible.

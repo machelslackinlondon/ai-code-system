@@ -410,6 +410,18 @@ DEFAULT_STACK:
 SCAFFOLD_REQUIREMENTS:
 {{SCAFFOLD_REQUIREMENTS}}
 
+NODE_VERSION_POLICY:
+{{NODE_VERSION_POLICY}}
+
+NODE_VERSION:
+{{NODE_VERSION}}
+
+CREATE_NVMRC:
+{{CREATE_NVMRC}}
+
+SWITCH_NODE_BEFORE_INSTALL:
+{{SWITCH_NODE_BEFORE_INSTALL}}
+
 REQUIRES_PRE_SCAFFOLD_APPROVAL:
 {{REQUIRES_PRE_SCAFFOLD_APPROVAL}}
 
@@ -614,6 +626,18 @@ Use `tasks/project-bootstrap.md` defaults.
 SCAFFOLD_REQUIREMENTS:
 Follow `tasks/project-bootstrap.md`; override only the fields in this prompt.
 
+NODE_VERSION_POLICY:
+{{NODE_VERSION_POLICY}}
+
+NODE_VERSION:
+{{NODE_VERSION}}
+
+CREATE_NVMRC:
+{{CREATE_NVMRC}}
+
+SWITCH_NODE_BEFORE_INSTALL:
+{{SWITCH_NODE_BEFORE_INSTALL}}
+
 REQUIRES_PRE_SCAFFOLD_APPROVAL:
 {{REQUIRES_PRE_SCAFFOLD_APPROVAL}}
 
@@ -657,6 +681,8 @@ shared
 If `IS_MONOREPO` is `yes` and `SERVICES` is empty, the agent should ask for the service list before creating files.
 
 Set `REQUIRES_PRE_SCAFFOLD_APPROVAL=yes` when you want a decision checkpoint before files are created. The agent should output the proposed projects/services/packages, tool rationale, alternatives, assumptions, risks, and selected capability options, then wait for approval.
+
+Use `NODE_VERSION_POLICY=latest-lts`, `CREATE_NVMRC=yes`, and `SWITCH_NODE_BEFORE_INSTALL=yes` when you want the agent to verify the current active LTS Node version, create `.nvmrc`, switch local Node with available tooling, and only then install dependencies or generate lockfiles.
 
 ## What To Commit To Another Project
 
