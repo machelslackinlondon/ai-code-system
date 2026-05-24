@@ -44,6 +44,10 @@ Task layers may specialize behavior but must not weaken core safety rules.
 - Summarize context instead of copying long file contents into responses.
 - Prefer links/paths over repeated pasted instructions.
 
+## Maintenance Rule
+
+When updating this prompt system, update the source-of-truth file first. Other docs should reference that file instead of duplicating long instructions.
+
 ## Active Task Fields
 
 Standard fields: `TASK_NAME`, `TASK_TYPE`, `TASK_DESCRIPTION`, `IMPACT_LEVEL`, `AFFECTED_SYSTEMS`, `RELATED_FILES`, `CONSTRAINTS`, `NON_GOALS`, `INPUTS`, `EXPECTED_OUTPUT`, `VALIDATION_PLAN`, `ROLLBACK_PLAN`, `TDD_MODE`.
@@ -76,4 +80,4 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 - `refactor.md`: behavior-preserving structure change.
 - `performance-optimization.md`: latency, throughput, memory, cost, or scalability.
 
-For project bootstrap, default to Node.js, Fastify, TypeScript, Tailwind CSS, Fly.io, Docker, Jest with coverage thresholds, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki, GitHub Actions, MongoDB DAO, and PostgreSQL/MySQL DAO support. If `IS_MONOREPO=yes` and `SERVICES` is missing, ask before scaffolding.
+For project bootstrap defaults, use `tasks/project-bootstrap.md` as source of truth. If `IS_MONOREPO=yes` and `SERVICES` is missing, ask before scaffolding.

@@ -83,4 +83,4 @@ SCAFFOLD_REQUIREMENTS:
 - `ROLLBACK_PLAN` is required for medium/high-impact changes.
 - `TDD_MODE` defaults to `auto`. Use `required` to force red-green-refactor when feasible, or `skip` only when tests are impractical or out of scope.
 - For `project-bootstrap`, `IS_MONOREPO` must be known before scaffolding. If it is `yes`, `SERVICES` must list each service/package to create.
-- For `project-bootstrap`, default to Node.js, Fastify, TypeScript, Tailwind, Fly.io, Docker, Jest with coverage thresholds, GitHub Actions, Cypress, Lighthouse, k6, OpenTelemetry, Prometheus/Grafana/Loki observability dashboards, MongoDB, and PostgreSQL/MySQL DAO support unless overridden.
+- For `project-bootstrap`, use `tasks/project-bootstrap.md` as the source of truth for default stack and scaffold expectations.
