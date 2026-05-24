@@ -71,6 +71,46 @@ DEFAULT_STACK:
 
 SCAFFOLD_REQUIREMENTS:
 
+REQUIRES_PRE_SCAFFOLD_APPROVAL:
+
+- yes
+- no
+- auto
+
+TOOL_DECISION_CRITERIA:
+
+PROJECT_SHAPE_DECISION:
+
+INCLUDE_CI_CD:
+
+- yes
+- no
+- auto
+
+INCLUDE_DEPLOYMENT:
+
+- yes
+- no
+- auto
+
+INCLUDE_DOCKER:
+
+- yes
+- no
+- auto
+
+INCLUDE_DATABASES:
+
+- yes
+- no
+- auto
+
+INCLUDE_OBSERVABILITY:
+
+- yes
+- no
+- auto
+
 ## Field Rules
 
 - `TASK_DESCRIPTION` must describe the desired outcome, not only the implementation idea.
@@ -84,3 +124,5 @@ SCAFFOLD_REQUIREMENTS:
 - `TDD_MODE` defaults to `auto`. Use `required` to force red-green-refactor when feasible, or `skip` only when tests are impractical or out of scope.
 - For `project-bootstrap`, `IS_MONOREPO` must be known before scaffolding. If it is `yes`, `SERVICES` must list each service/package to create.
 - For `project-bootstrap`, use `tasks/project-bootstrap.md` as the source of truth for default stack and scaffold expectations.
+- For `project-bootstrap`, `REQUIRES_PRE_SCAFFOLD_APPROVAL` defaults to `auto`; treat `auto` as `yes` for monorepos and medium/high-impact scaffolds.
+- For `project-bootstrap`, `INCLUDE_*` fields default to `auto`; use task description and constraints to decide, then explain included/skipped options in the pre-scaffold proposal.

@@ -104,6 +104,8 @@ Available task archetypes include bug fixes, feature builds, project bootstrappi
 
 The project-bootstrap task supports new single-project or monorepo scaffolds. See `tasks/project-bootstrap.md` for the default stack and scaffold expectations.
 
+For project-bootstrap placeholder workflows, set `REQUIRES_PRE_SCAFFOLD_APPROVAL=yes` when you want the agent to propose project shape, services/packages, tool choices, trade-offs, and included/skipped capabilities before creating files.
+
 TDD is automated through `core/tdd-principles.md`. Agents load it only when the task changes behavior, fixes a bug, or needs characterization tests before refactoring.
 
 Assessment alignment is available through `core/assessment-alignment.md` for review/audit tasks. It is not loaded by default.
@@ -229,6 +231,30 @@ DEFAULT_STACK:
 
 SCAFFOLD_REQUIREMENTS:
 {{SCAFFOLD_REQUIREMENTS}}
+
+REQUIRES_PRE_SCAFFOLD_APPROVAL:
+{{REQUIRES_PRE_SCAFFOLD_APPROVAL}}
+
+TOOL_DECISION_CRITERIA:
+{{TOOL_DECISION_CRITERIA}}
+
+PROJECT_SHAPE_DECISION:
+{{PROJECT_SHAPE_DECISION}}
+
+INCLUDE_CI_CD:
+{{INCLUDE_CI_CD}}
+
+INCLUDE_DEPLOYMENT:
+{{INCLUDE_DEPLOYMENT}}
+
+INCLUDE_DOCKER:
+{{INCLUDE_DOCKER}}
+
+INCLUDE_DATABASES:
+{{INCLUDE_DATABASES}}
+
+INCLUDE_OBSERVABILITY:
+{{INCLUDE_OBSERVABILITY}}
 ```
 
 Filled project-bootstrap example:
@@ -296,6 +322,30 @@ Use `tasks/project-bootstrap.md` defaults. SQL DAO: PostgreSQL.
 
 SCAFFOLD_REQUIREMENTS:
 Follow `tasks/project-bootstrap.md`; create api, web, worker, and shared packages with PostgreSQL SQL DAO support.
+
+REQUIRES_PRE_SCAFFOLD_APPROVAL:
+yes
+
+TOOL_DECISION_CRITERIA:
+Prefer boring, production-ready tools. Minimize framework complexity. Explain alternatives when they materially change cost, speed, or maintainability.
+
+PROJECT_SHAPE_DECISION:
+Recommend monorepo vs single app from the task description and explain reasoning before scaffolding.
+
+INCLUDE_CI_CD:
+yes
+
+INCLUDE_DEPLOYMENT:
+yes
+
+INCLUDE_DOCKER:
+yes
+
+INCLUDE_DATABASES:
+yes
+
+INCLUDE_OBSERVABILITY:
+yes
 ```
 
 ## Adding New Task Types

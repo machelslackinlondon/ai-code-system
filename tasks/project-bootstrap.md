@@ -29,8 +29,31 @@ Unless the active task or user request says otherwise, default to:
 - `SQL_DATABASE`: PostgreSQL or MySQL
 - `APP_NAME` or service names
 - Deployment target and Fly.io app naming strategy
+- `REQUIRES_PRE_SCAFFOLD_APPROVAL`: yes by default for monorepos and medium/high-impact scaffolds
+- Optional capability toggles: `INCLUDE_CI_CD`, `INCLUDE_DEPLOYMENT`, `INCLUDE_DOCKER`, `INCLUDE_DATABASES`, `INCLUDE_OBSERVABILITY`
 
 If `IS_MONOREPO` is unknown, ask before scaffolding. If `IS_MONOREPO` is yes and `SERVICES` is missing, ask for the service list before creating files.
+
+## Pre-Scaffold Proposal
+
+Before creating files, produce a proposal when `REQUIRES_PRE_SCAFFOLD_APPROVAL` is yes, the scaffold is monorepo-based, or the impact is medium/high.
+
+The proposal must include:
+
+- Project shape: single app or monorepo
+- Projects/services/packages to create
+- Purpose of each project/service/package
+- Selected tools and why they fit the task
+- Alternatives considered, when meaningful
+- Database choice and DAO strategy
+- CI/CD, deployment, Docker, database, and observability options included or skipped
+- Testing, coverage, performance, and observability strategy
+- Deployment strategy
+- Assumptions
+- Risks and trade-offs
+- Open questions
+
+Do not scaffold until the proposal is accepted or the user explicitly asks to proceed.
 
 ## Required Behavior
 
@@ -149,6 +172,9 @@ The generated project README must include:
 ## Output Expectations
 
 - Project shape summary
+- Pre-scaffold proposal, when required
+- Project/service/package list and rationale
+- Tool choice rationale
 - Monorepo status and services, if applicable
 - Stack choices used
 - Files created

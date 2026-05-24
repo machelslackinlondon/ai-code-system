@@ -409,6 +409,30 @@ DEFAULT_STACK:
 
 SCAFFOLD_REQUIREMENTS:
 {{SCAFFOLD_REQUIREMENTS}}
+
+REQUIRES_PRE_SCAFFOLD_APPROVAL:
+{{REQUIRES_PRE_SCAFFOLD_APPROVAL}}
+
+TOOL_DECISION_CRITERIA:
+{{TOOL_DECISION_CRITERIA}}
+
+PROJECT_SHAPE_DECISION:
+{{PROJECT_SHAPE_DECISION}}
+
+INCLUDE_CI_CD:
+{{INCLUDE_CI_CD}}
+
+INCLUDE_DEPLOYMENT:
+{{INCLUDE_DEPLOYMENT}}
+
+INCLUDE_DOCKER:
+{{INCLUDE_DOCKER}}
+
+INCLUDE_DATABASES:
+{{INCLUDE_DATABASES}}
+
+INCLUDE_OBSERVABILITY:
+{{INCLUDE_OBSERVABILITY}}
 ```
 
 This mode is best when:
@@ -590,8 +614,32 @@ Use `tasks/project-bootstrap.md` defaults.
 SCAFFOLD_REQUIREMENTS:
 Follow `tasks/project-bootstrap.md`; override only the fields in this prompt.
 
+REQUIRES_PRE_SCAFFOLD_APPROVAL:
+{{REQUIRES_PRE_SCAFFOLD_APPROVAL}}
+
+TOOL_DECISION_CRITERIA:
+{{TOOL_DECISION_CRITERIA}}
+
+PROJECT_SHAPE_DECISION:
+{{PROJECT_SHAPE_DECISION}}
+
+INCLUDE_CI_CD:
+{{INCLUDE_CI_CD}}
+
+INCLUDE_DEPLOYMENT:
+{{INCLUDE_DEPLOYMENT}}
+
+INCLUDE_DOCKER:
+{{INCLUDE_DOCKER}}
+
+INCLUDE_DATABASES:
+{{INCLUDE_DATABASES}}
+
+INCLUDE_OBSERVABILITY:
+{{INCLUDE_OBSERVABILITY}}
+
 EXPECTED_OUTPUT:
-Working scaffold, Docker setup, tests, performance testing scripts, observability dashboard setup, CI/CD workflow, Fly.io deployment config, and detailed README documentation for running and deploying the application.
+Pre-scaffold proposal first when approval is required, then working scaffold after approval.
 
 VALIDATION_PLAN:
 Validate generated scripts, config files, tests, performance tests, observability setup, Docker setup, and README instructions. Run checks when dependencies are available.
@@ -607,6 +655,8 @@ shared
 ```
 
 If `IS_MONOREPO` is `yes` and `SERVICES` is empty, the agent should ask for the service list before creating files.
+
+Set `REQUIRES_PRE_SCAFFOLD_APPROVAL=yes` when you want a decision checkpoint before files are created. The agent should output the proposed projects/services/packages, tool rationale, alternatives, assumptions, risks, and selected capability options, then wait for approval.
 
 ## What To Commit To Another Project
 
