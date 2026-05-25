@@ -134,12 +134,21 @@ runtime/session-notes.md only when continuing work
 
 Do not load `README.md`, `USING-WITH-VSCODE.md`, `docs/examples.md`, every task file, or optional core files unless the task requires them.
 
-Low-token prompt:
+Main low-cost mode prompt:
 
 ```text
 Use AGENTS.md in low-token mode.
-Load only the required core files, one task layer, and the active task source.
-Use runtime/session-notes.md only if continuing previous work.
+Load only required core files, one task layer, and the active task source.
+Do not load README.md, USING-WITH-VSCODE.md, examples, every task file, or optional modules unless needed.
+```
+
+Example for a known task:
+
+```text
+Use AGENTS.md in low-token mode.
+Treat this as a risk-discovery task.
+Load only required core files, tasks/risk-discovery.md, and the active task source.
+Do not load README.md, USING-WITH-VSCODE.md, examples, every task file, or optional modules unless needed.
 ```
 
 ## Maintenance Rule

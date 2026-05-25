@@ -399,9 +399,17 @@ For normal coding tasks, tell the agent:
 
 ```text
 Use AGENTS.md in low-token mode.
-Load only the required core files, one task layer, and the active task source.
-Do not load README.md, USING-WITH-VSCODE.md, every task file, or optional core modules unless needed.
-Do not load docs/examples.md unless examples are requested.
+Load only required core files, one task layer, and the active task source.
+Do not load README.md, USING-WITH-VSCODE.md, examples, every task file, or optional modules unless needed.
+```
+
+Example for a known task:
+
+```text
+Use AGENTS.md in low-token mode.
+Treat this as a code-review task.
+Load only required core files, tasks/code-review.md, and the active task source.
+Do not load README.md, USING-WITH-VSCODE.md, examples, every task file, or optional modules unless needed.
 ```
 
 This keeps the active context small while preserving the same rules.
