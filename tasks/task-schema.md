@@ -177,6 +177,12 @@ REVIEW_HEAD_REF:
 
 REVIEW_RANGE:
 
+REVIEW_RANGE_MODE:
+
+- full-branch
+- explicit-range
+- latest-commit
+
 REVIEW_REQUIRE_TESTS:
 
 - yes
@@ -216,5 +222,6 @@ REVIEW_RISK_THRESHOLD:
 - For `project-bootstrap`, `INCLUDE_*` fields default to `auto`; use task description and constraints to decide, then explain included/skipped options in the pre-scaffold proposal.
 - For `risk-discovery`, do not implement fixes unless explicitly requested.
 - For `risk-discovery`, default `INCLUDE_MITIGATION_STRATEGIES`, `INCLUDE_DATA_CONSISTENCY_ANALYSIS`, `INCLUDE_AVAILABILITY_ANALYSIS`, and `INCLUDE_DESIGN_FOR_FAILURE_REVIEW` to `yes`.
-- For `code-review`, default `REVIEW_HEAD_REF` to current `HEAD`, `REVIEW_REQUIRE_TESTS` to `auto`, and `REVIEW_APPLY_FIXES` to `no`.
+- For `code-review`, default `REVIEW_HEAD_REF` to current `HEAD`, `REVIEW_RANGE_MODE` to `full-branch`, `REVIEW_REQUIRE_TESTS` to `auto`, and `REVIEW_APPLY_FIXES` to `no`.
+- For `code-review`, when `REVIEW_RANGE_MODE` is `full-branch`, review all branch changes from the merge-base/first divergent commit through `REVIEW_HEAD_REF`.
 - For `code-review`, ask for approval before writing or applying fixes.

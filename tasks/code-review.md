@@ -8,11 +8,24 @@ Default behavior is review-only. Do not modify files unless the user explicitly 
 
 - `REVIEW_BASE_REF`: base branch, tag, or commit
 - `REVIEW_HEAD_REF`: head branch or commit; default current `HEAD`
-- `REVIEW_RANGE`: explicit commit range when provided
+- `REVIEW_RANGE`: explicit commit range when provided; otherwise derive the full branch range from the merge-base/first divergent commit
 - `REVIEW_REQUIRE_TESTS`: yes, no, or auto
 - `REVIEW_APPLY_FIXES`: no by default
 
 If no base ref or range is provided, infer the most likely base branch from repository context when safe; otherwise ask.
+
+## Range Selection
+
+By default, review all changes introduced on the branch from the first commit that diverged from the base branch through `REVIEW_HEAD_REF`.
+
+Use this precedence:
+
+1. If `REVIEW_RANGE` is provided, review that exact range.
+2. Else if `REVIEW_BASE_REF` and `REVIEW_HEAD_REF` are provided, find their merge-base and review `merge-base..REVIEW_HEAD_REF`.
+3. Else infer the likely base branch, find `merge-base inferred-base REVIEW_HEAD_REF`, and review `merge-base..REVIEW_HEAD_REF`.
+4. If the base branch cannot be inferred safely, ask before reviewing.
+
+Do not review only the latest commit unless `REVIEW_RANGE` explicitly asks for it.
 
 ## Review Scope
 
@@ -31,7 +44,7 @@ Review introduced changes for:
 ## Required Behavior
 
 - Inspect only the current repository/workspace unless the user provides external context.
-- Review commits/diffs relevant to `REVIEW_BASE_REF..REVIEW_HEAD_REF` or `REVIEW_RANGE`.
+- Review commits/diffs relevant to the selected range, including every branch commit and the combined diff from the first divergent commit through `REVIEW_HEAD_REF`.
 - Prioritize findings by severity and likelihood.
 - Provide evidence with file paths, changed behavior, failing checks, or commit references.
 - Distinguish confirmed issues from assumptions or unknowns.

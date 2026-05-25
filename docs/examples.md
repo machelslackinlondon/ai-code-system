@@ -232,7 +232,7 @@ Code review:
 ```text
 Use AGENTS.md in low-token mode.
 Treat this as a code-review task.
-Review REVIEW_BASE_REF..REVIEW_HEAD_REF in the current repository.
+Review all branch changes from the merge-base/first divergent commit through REVIEW_HEAD_REF in the current repository.
 Check correctness, scalability, maintainability, security, performance, data consistency, availability, and unit test status.
 Classify introduced risk as low, medium, or high.
 Do not apply fixes. Explain proposed changes and ask for approval before writing.
