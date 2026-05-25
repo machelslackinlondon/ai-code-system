@@ -9,6 +9,7 @@ TASK_NAME:
 TASK_TYPE:
 
 - bug-fix
+- code-review
 - feature-build
 - project-bootstrap
 - refactor
@@ -166,6 +167,36 @@ INCLUDE_DESIGN_FOR_FAILURE_REVIEW:
 - yes
 - no
 
+## Code Review Fields
+
+Use these fields when `TASK_TYPE` is `code-review`.
+
+REVIEW_BASE_REF:
+
+REVIEW_HEAD_REF:
+
+REVIEW_RANGE:
+
+REVIEW_REQUIRE_TESTS:
+
+- yes
+- no
+- auto
+
+REVIEW_APPLY_FIXES:
+
+- yes
+- no
+
+REVIEW_FOCUS_AREAS:
+
+REVIEW_RISK_THRESHOLD:
+
+- low
+- medium
+- high
+- all
+
 ## Field Rules
 
 - `TASK_DESCRIPTION` must describe the desired outcome, not only the implementation idea.
@@ -185,3 +216,5 @@ INCLUDE_DESIGN_FOR_FAILURE_REVIEW:
 - For `project-bootstrap`, `INCLUDE_*` fields default to `auto`; use task description and constraints to decide, then explain included/skipped options in the pre-scaffold proposal.
 - For `risk-discovery`, do not implement fixes unless explicitly requested.
 - For `risk-discovery`, default `INCLUDE_MITIGATION_STRATEGIES`, `INCLUDE_DATA_CONSISTENCY_ANALYSIS`, `INCLUDE_AVAILABILITY_ANALYSIS`, and `INCLUDE_DESIGN_FOR_FAILURE_REVIEW` to `yes`.
+- For `code-review`, default `REVIEW_HEAD_REF` to current `HEAD`, `REVIEW_REQUIRE_TESTS` to `auto`, and `REVIEW_APPLY_FIXES` to `no`.
+- For `code-review`, ask for approval before writing or applying fixes.

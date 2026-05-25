@@ -49,7 +49,17 @@ INCLUDE_DATA_CONSISTENCY_ANALYSIS={{INCLUDE_DATA_CONSISTENCY_ANALYSIS}}
 INCLUDE_AVAILABILITY_ANALYSIS={{INCLUDE_AVAILABILITY_ANALYSIS}}
 INCLUDE_DESIGN_FOR_FAILURE_REVIEW={{INCLUDE_DESIGN_FOR_FAILURE_REVIEW}}
 
+REVIEW_BASE_REF={{REVIEW_BASE_REF}}
+REVIEW_HEAD_REF={{REVIEW_HEAD_REF}}
+REVIEW_RANGE={{REVIEW_RANGE}}
+REVIEW_REQUIRE_TESTS={{REVIEW_REQUIRE_TESTS}}
+REVIEW_APPLY_FIXES={{REVIEW_APPLY_FIXES}}
+REVIEW_FOCUS_AREAS={{REVIEW_FOCUS_AREAS}}
+REVIEW_RISK_THRESHOLD={{REVIEW_RISK_THRESHOLD}}
+
 For project-bootstrap with REQUIRES_PRE_SCAFFOLD_APPROVAL=yes/auto, produce the pre-scaffold proposal from tasks/project-bootstrap.md before creating files and wait for approval when required.
+
+For code-review, do not write or apply fixes unless REVIEW_APPLY_FIXES=yes and the user approves the proposed change.
 
 Before finishing, update runtime/session-notes.md unless asked not to.
 ```

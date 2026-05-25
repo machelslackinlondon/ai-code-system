@@ -100,7 +100,7 @@ For saved prompts, use the templates in `prompts/`:
 3. Pick one matching task archetype from `tasks/`.
 4. Ask the coding agent to follow `AGENTS.md`.
 
-Available task archetypes include bug fixes, feature builds, project bootstrapping, refactors, performance optimization, and risk discovery.
+Available task archetypes include bug fixes, code reviews, feature builds, project bootstrapping, refactors, performance optimization, and risk discovery.
 
 The project-bootstrap task supports new single-project or monorepo scaffolds. See `tasks/project-bootstrap.md` for the default stack and scaffold expectations.
 
@@ -111,6 +111,8 @@ TDD is automated through `core/tdd-principles.md`. Agents load it only when the 
 Assessment alignment is available through `core/assessment-alignment.md` for review/audit tasks. It is not loaded by default.
 
 Use `tasks/risk-discovery.md` when you want a non-functional risk register with mitigation strategies, including design-for-failure, data consistency, and availability analysis.
+
+Use `tasks/code-review.md` when you want to review branch commits or diffs for correctness, passing tests, security, performance, scalability, maintainability, and introduced risk before applying fixes.
 
 ## Low-Token Use
 
@@ -176,6 +178,17 @@ Inspect non-functional limitations only; do not implement fixes.
 Do not infer hidden systems; use Unknown for missing context.
 Output a risk register with repo-backed evidence, severity, mitigation strategies, recommended actions, and follow-up tasks.
 Include design-for-failure, data consistency, and availability analysis.
+```
+
+Code review prompt:
+
+```text
+Use AGENTS.md in low-token mode.
+Treat this as a code-review task.
+Review REVIEW_BASE_REF..REVIEW_HEAD_REF in the current repository.
+Check correctness, scalability, maintainability, security, performance, data consistency, availability, and unit test status.
+Classify introduced risk as low, medium, or high.
+Do not apply fixes. Explain proposed changes and ask for approval before writing.
 ```
 
 Example placeholder session prompt:

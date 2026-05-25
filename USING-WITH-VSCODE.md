@@ -53,6 +53,7 @@ core/
 
 tasks/
   bug-fix.md
+  code-review.md
   feature-build.md
   project-bootstrap.md
   refactor.md
@@ -151,6 +152,7 @@ The `tasks/` files define reusable workflows for common work types.
 Use one task layer per task:
 
 - `bug-fix.md` for diagnosing and correcting broken behavior
+- `code-review.md` for reviewing branch commits/diffs before applying fixes
 - `feature-build.md` for adding new behavior
 - `project-bootstrap.md` for scaffolding new projects, apps, services, packages, or monorepos
 - `refactor.md` for behavior-preserving structural improvement
@@ -561,6 +563,15 @@ For a feature:
 Use AGENTS.md and runtime/active-task.md. Treat this as a feature-build task.
 ```
 
+For a code review:
+
+```text
+Use AGENTS.md and runtime/active-task.md. Treat this as a code-review task.
+Review the branch commits/diff for correctness, scalability, maintainability, security, performance, data consistency, availability, and unit test status.
+Classify introduced risk as low, medium, or high.
+Do not apply fixes. Explain any proposed change and ask for approval before writing.
+```
+
 For a new project scaffold:
 
 ```text
@@ -627,6 +638,7 @@ Output:
 Choose the task type based on the dominant risk:
 
 - If behavior is wrong, use `bug-fix`.
+- If the goal is to review branch commits or pull-request changes before applying fixes, use `code-review`.
 - If new behavior is being added, use `feature-build`.
 - If a new project, app, service, package, or monorepo is being created, use `project-bootstrap`.
 - If behavior must stay the same while structure improves, use `refactor`.
