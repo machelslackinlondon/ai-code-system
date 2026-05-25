@@ -70,7 +70,12 @@ prompts/
   continue-task.md
   checkpoint-task.md
   placeholder-continue-task.md
+
+docs/
+  examples.md
 ```
+
+Do not load `docs/examples.md` unless examples are requested.
 
 ## How The Layers Work
 
@@ -274,182 +279,7 @@ In this mode, you keep the prompt system files in the repository, but define eac
 
 Placeholder values override `runtime/active-task.md` for the current session. The file can remain a fallback template.
 
-Save a reusable prompt like this:
-
-```text
-Follow AGENTS.md.
-
-Use the Core Rules + Task Layer system.
-
-Task details:
-
-TASK_NAME:
-{{TASK_NAME}}
-
-TASK_TYPE:
-{{TASK_TYPE}}
-
-TASK_DESCRIPTION:
-{{TASK_DESCRIPTION}}
-
-IMPACT_LEVEL:
-{{IMPACT_LEVEL}}
-
-AFFECTED_SYSTEMS:
-{{AFFECTED_SYSTEMS}}
-
-RELATED_FILES:
-{{RELATED_FILES}}
-
-CONSTRAINTS:
-{{CONSTRAINTS}}
-
-NON_GOALS:
-{{NON_GOALS}}
-
-INPUTS:
-{{INPUTS}}
-
-EXPECTED_OUTPUT:
-{{EXPECTED_OUTPUT}}
-
-VALIDATION_PLAN:
-{{VALIDATION_PLAN}}
-
-ROLLBACK_PLAN:
-{{ROLLBACK_PLAN}}
-
-Project bootstrap details, if applicable:
-
-IS_MONOREPO:
-{{IS_MONOREPO}}
-
-SERVICES:
-{{SERVICES}}
-
-APP_NAME:
-{{APP_NAME}}
-
-SQL_DATABASE:
-{{SQL_DATABASE}}
-
-DEPLOYMENT_TARGET:
-{{DEPLOYMENT_TARGET}}
-
-DEFAULT_STACK:
-{{DEFAULT_STACK}}
-
-SCAFFOLD_REQUIREMENTS:
-{{SCAFFOLD_REQUIREMENTS}}
-
-Apply the matching task layer from `tasks/`.
-If a placeholder is empty or unknown, treat it as `Unknown`.
-Make safe assumptions only for low-risk work.
-Ask for clarification before medium/high-impact work when missing information affects safety, correctness, production behavior, data, authentication, infrastructure, cost, or rollback.
-```
-
-If the prompt system is copied as a subfolder, use the subfolder path:
-
-```text
-Follow prompt-system/AGENTS.md.
-
-Use the task details below instead of prompt-system/runtime/active-task.md for this session.
-
-TASK_NAME:
-{{TASK_NAME}}
-
-TASK_TYPE:
-{{TASK_TYPE}}
-
-TASK_DESCRIPTION:
-{{TASK_DESCRIPTION}}
-
-IMPACT_LEVEL:
-{{IMPACT_LEVEL}}
-
-AFFECTED_SYSTEMS:
-{{AFFECTED_SYSTEMS}}
-
-RELATED_FILES:
-{{RELATED_FILES}}
-
-CONSTRAINTS:
-{{CONSTRAINTS}}
-
-NON_GOALS:
-{{NON_GOALS}}
-
-INPUTS:
-{{INPUTS}}
-
-EXPECTED_OUTPUT:
-{{EXPECTED_OUTPUT}}
-
-VALIDATION_PLAN:
-{{VALIDATION_PLAN}}
-
-ROLLBACK_PLAN:
-{{ROLLBACK_PLAN}}
-
-Project bootstrap details, if applicable:
-
-IS_MONOREPO:
-{{IS_MONOREPO}}
-
-SERVICES:
-{{SERVICES}}
-
-APP_NAME:
-{{APP_NAME}}
-
-SQL_DATABASE:
-{{SQL_DATABASE}}
-
-DEPLOYMENT_TARGET:
-{{DEPLOYMENT_TARGET}}
-
-DEFAULT_STACK:
-{{DEFAULT_STACK}}
-
-SCAFFOLD_REQUIREMENTS:
-{{SCAFFOLD_REQUIREMENTS}}
-
-NODE_VERSION_POLICY:
-{{NODE_VERSION_POLICY}}
-
-NODE_VERSION:
-{{NODE_VERSION}}
-
-CREATE_NVMRC:
-{{CREATE_NVMRC}}
-
-SWITCH_NODE_BEFORE_INSTALL:
-{{SWITCH_NODE_BEFORE_INSTALL}}
-
-REQUIRES_PRE_SCAFFOLD_APPROVAL:
-{{REQUIRES_PRE_SCAFFOLD_APPROVAL}}
-
-TOOL_DECISION_CRITERIA:
-{{TOOL_DECISION_CRITERIA}}
-
-PROJECT_SHAPE_DECISION:
-{{PROJECT_SHAPE_DECISION}}
-
-INCLUDE_CI_CD:
-{{INCLUDE_CI_CD}}
-
-INCLUDE_DEPLOYMENT:
-{{INCLUDE_DEPLOYMENT}}
-
-INCLUDE_DOCKER:
-{{INCLUDE_DOCKER}}
-
-INCLUDE_DATABASES:
-{{INCLUDE_DATABASES}}
-
-INCLUDE_OBSERVABILITY:
-{{INCLUDE_OBSERVABILITY}}
-```
+The full placeholder prompt examples are in `docs/examples.md`.
 
 This mode is best when:
 
@@ -472,24 +302,7 @@ The automation pattern is:
 4. Continue from the open items.
 5. Before finishing, update `runtime/session-notes.md`.
 
-Use this prompt:
-
-```text
-Use AGENTS.md.
-Continue from runtime/active-task.md and runtime/session-notes.md.
-Preserve the existing context.
-Do not restart the task from scratch unless this request explicitly changes direction.
-Before finishing, update runtime/session-notes.md with decisions, changed files, validation, open questions, open items, risks, and next steps.
-```
-
-If using placeholders:
-
-```text
-Use AGENTS.md.
-Use the placeholder values in this prompt as the active task.
-Use runtime/session-notes.md as continuity context.
-Before finishing, update runtime/session-notes.md.
-```
+Longer continuity prompt examples are in `docs/examples.md`.
 
 Saved prompt templates are available in `prompts/`.
 
@@ -507,131 +320,11 @@ For each task:
 
 If using AI extension UI placeholders, fill the prompt variables in the extension instead of editing `runtime/active-task.md`.
 
-Example `runtime/active-task.md`:
-
-```md
-# Active Task
-
-TASK_NAME:
-Fix checkout total rounding issue
-
-TASK_TYPE:
-bug-fix
-
-TASK_DESCRIPTION:
-Checkout totals sometimes show a one-cent mismatch between the item subtotal and final charged amount.
-
-IMPACT_LEVEL:
-medium
-
-AFFECTED_SYSTEMS:
-Checkout, payments, order summary UI
-
-RELATED_FILES:
-Unknown
-
-CONSTRAINTS:
-Do not change payment provider integration behavior.
-
-NON_GOALS:
-Do not redesign checkout pricing.
-
-INPUTS:
-User report and failing checkout example.
-
-EXPECTED_OUTPUT:
-Root cause, minimal fix, regression test, validation summary.
-
-VALIDATION_PLAN:
-Run targeted checkout pricing tests.
-
-ROLLBACK_PLAN:
-Revert the checkout calculation change.
-```
+An example `runtime/active-task.md` is available in `docs/examples.md`.
 
 ## Recommended Prompts
 
-For a bug fix:
-
-```text
-Use AGENTS.md and runtime/active-task.md. Treat this as a bug-fix task.
-```
-
-For a feature:
-
-```text
-Use AGENTS.md and runtime/active-task.md. Treat this as a feature-build task.
-```
-
-For a code review:
-
-```text
-Use AGENTS.md and runtime/active-task.md. Treat this as a code-review task.
-Review the branch commits/diff for correctness, scalability, maintainability, security, performance, data consistency, availability, and unit test status.
-Classify introduced risk as low, medium, or high.
-Do not apply fixes. Explain any proposed change and ask for approval before writing.
-```
-
-For a new project scaffold:
-
-```text
-Use AGENTS.md and runtime/active-task.md. Treat this as a project-bootstrap task.
-Use default stack and scaffold expectations from tasks/project-bootstrap.md unless the task says otherwise.
-If this is a monorepo and services are not listed, ask for the service list before scaffolding.
-```
-
-For a refactor:
-
-```text
-Use AGENTS.md and runtime/active-task.md. Treat this as a refactor task and preserve behavior.
-```
-
-For performance work:
-
-```text
-Use AGENTS.md and runtime/active-task.md. Treat this as a performance-optimization task and validate with measurements where feasible.
-```
-
-For risk discovery:
-
-```text
-Use AGENTS.md and runtime/active-task.md. Treat this as a risk-discovery task.
-Inspect non-functional limitations only; do not implement fixes.
-Scope the assessment to the current repository/workspace only unless I provide external architecture context.
-Do not infer risks from systems that are not present in the repo or described by me.
-Output a risk register with evidence, severity, mitigation strategies, recommended actions, and follow-up tasks.
-Include design-for-failure, data consistency, and availability analysis.
-```
-
-Contained risk discovery prompt:
-
-```text
-Use AGENTS.md in low-token mode.
-Treat this as a risk-discovery task.
-
-Assess only the current repository/workspace.
-Do not implement fixes.
-Do not infer external architecture, production topology, or hidden services.
-Use `Unknown` for missing context.
-
-For each finding, cite evidence from repository files, configuration, observed behavior, or explicit context I provided.
-
-Focus on:
-- performance and scalability
-- reliability and designing for failure
-- data consistency and availability
-- security and secrets
-- observability
-- CI/CD and deployment safety
-- local development and test coverage
-
-Output:
-- executive summary
-- risk register
-- assumptions and unknowns
-- mitigation strategies
-- prioritized follow-up tasks
-```
+Task prompt examples for bug fixes, feature builds, code reviews, project bootstraps, refactors, performance work, and risk discovery are in `docs/examples.md`.
 
 ## How To Choose The Task Type
 
@@ -647,92 +340,11 @@ Choose the task type based on the dominant risk:
 
 When a task overlaps categories, choose the one with the highest operational risk. For example, fixing a production performance regression should use `performance-optimization`, even if it also involves refactoring. Creating a new service inside an existing monorepo should use `project-bootstrap`, then apply feature-build behavior inside that scaffold.
 
-## Project Bootstrap Prompt Example
+## Project Bootstrap Prompt Examples
 
-Use this prompt when creating a new project or monorepo:
+Project bootstrap placeholder and filled examples are in `docs/examples.md`.
 
-```text
-Use AGENTS.md.
-Treat this as a project-bootstrap task.
-
-TASK_NAME:
-{{TASK_NAME}}
-
-TASK_DESCRIPTION:
-{{TASK_DESCRIPTION}}
-
-IS_MONOREPO:
-{{IS_MONOREPO}}
-
-SERVICES:
-{{SERVICES}}
-
-APP_NAME:
-{{APP_NAME}}
-
-SQL_DATABASE:
-{{SQL_DATABASE}}
-
-DEPLOYMENT_TARGET:
-Fly.io
-
-DEFAULT_STACK:
-Use `tasks/project-bootstrap.md` defaults.
-
-SCAFFOLD_REQUIREMENTS:
-Follow `tasks/project-bootstrap.md`; override only the fields in this prompt.
-
-NODE_VERSION_POLICY:
-{{NODE_VERSION_POLICY}}
-
-NODE_VERSION:
-{{NODE_VERSION}}
-
-CREATE_NVMRC:
-{{CREATE_NVMRC}}
-
-SWITCH_NODE_BEFORE_INSTALL:
-{{SWITCH_NODE_BEFORE_INSTALL}}
-
-REQUIRES_PRE_SCAFFOLD_APPROVAL:
-{{REQUIRES_PRE_SCAFFOLD_APPROVAL}}
-
-TOOL_DECISION_CRITERIA:
-{{TOOL_DECISION_CRITERIA}}
-
-PROJECT_SHAPE_DECISION:
-{{PROJECT_SHAPE_DECISION}}
-
-INCLUDE_CI_CD:
-{{INCLUDE_CI_CD}}
-
-INCLUDE_DEPLOYMENT:
-{{INCLUDE_DEPLOYMENT}}
-
-INCLUDE_DOCKER:
-{{INCLUDE_DOCKER}}
-
-INCLUDE_DATABASES:
-{{INCLUDE_DATABASES}}
-
-INCLUDE_OBSERVABILITY:
-{{INCLUDE_OBSERVABILITY}}
-
-EXPECTED_OUTPUT:
-Pre-scaffold proposal first when approval is required, then working scaffold after approval.
-
-VALIDATION_PLAN:
-Validate generated scripts, config files, tests, performance tests, observability setup, Docker setup, and README instructions. Run checks when dependencies are available.
-```
-
-If `IS_MONOREPO` is `yes`, provide `SERVICES` as a comma-separated or line-separated list, for example:
-
-```text
-api
-web
-worker
-shared
-```
+If `IS_MONOREPO` is `yes`, provide `SERVICES` as a comma-separated or line-separated list.
 
 If `IS_MONOREPO` is `yes` and `SERVICES` is empty, the agent should ask for the service list before creating files.
 
@@ -789,6 +401,7 @@ For normal coding tasks, tell the agent:
 Use AGENTS.md in low-token mode.
 Load only the required core files, one task layer, and the active task source.
 Do not load README.md, USING-WITH-VSCODE.md, every task file, or optional core modules unless needed.
+Do not load docs/examples.md unless examples are requested.
 ```
 
 This keeps the active context small while preserving the same rules.

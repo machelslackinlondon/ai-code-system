@@ -40,6 +40,7 @@ Task layers may specialize behavior but must not weaken core safety rules.
 ## Token Budget Rules
 
 - Do not load README or VS Code guide files unless asked.
+- Do not load `docs/examples.md` unless examples are requested.
 - Do not load every task file; load only the selected task layer.
 - Do not load optional core modules unless relevant.
 - Keep `runtime/session-notes.md` concise: decisions, changed files, validation, open items, risks, next step.
