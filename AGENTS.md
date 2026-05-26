@@ -14,6 +14,7 @@ Load only what is needed:
    - Review/audit tasks: `core/assessment-alignment.md`
 3. One task layer:
    - `tasks/bug-fix.md`
+   - `tasks/business-requirements-planning.md`
    - `tasks/code-review.md`
    - `tasks/feature-build.md`
    - `tasks/project-bootstrap.md`
@@ -78,6 +79,7 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 ## Task Selection
 
 - `bug-fix.md`: broken or unexpected behavior.
+- `business-requirements-planning.md`: convert business requirements into an implementation-ready plan before coding.
 - `code-review.md`: review branch commits/diffs for correctness, risk, tests, security, performance, scalability, and maintainability.
 - `feature-build.md`: new behavior.
 - `project-bootstrap.md`: new project, app, service, package, or monorepo.

@@ -101,7 +101,7 @@ For saved prompts, use the templates in `prompts/`:
 3. Pick one matching task archetype from `tasks/`.
 4. Ask the coding agent to follow `AGENTS.md`.
 
-Available task archetypes include bug fixes, code reviews, feature builds, project bootstrapping, refactors, performance optimization, and risk discovery.
+Available task archetypes include bug fixes, business requirements planning, code reviews, feature builds, project bootstrapping, refactors, performance optimization, and risk discovery.
 
 The project-bootstrap task supports new single-project or monorepo scaffolds. See `tasks/project-bootstrap.md` for the default stack and scaffold expectations.
 
@@ -114,6 +114,8 @@ Assessment alignment is available through `core/assessment-alignment.md` for rev
 Use `tasks/risk-discovery.md` when you want a non-functional risk register with mitigation strategies, including design-for-failure, data consistency, and availability analysis.
 
 Use `tasks/code-review.md` when you want to review branch commits or diffs for correctness, passing tests, security, performance, scalability, maintainability, and introduced risk before applying fixes.
+
+Use `tasks/business-requirements-planning.md` when you want to turn business requirements into an implementation-ready plan, acceptance criteria, risks, and a recommended next task before coding.
 
 ## Low-Token Use
 

@@ -9,6 +9,7 @@ TASK_NAME:
 TASK_TYPE:
 
 - bug-fix
+- business-requirements-planning
 - code-review
 - feature-build
 - project-bootstrap
@@ -167,6 +168,32 @@ INCLUDE_DESIGN_FOR_FAILURE_REVIEW:
 - yes
 - no
 
+## Business Requirements Planning Fields
+
+Use these fields when `TASK_TYPE` is `business-requirements-planning`.
+
+BUSINESS_GOAL:
+
+TARGET_USERS:
+
+SUCCESS_METRICS:
+
+USER_OUTCOMES:
+
+BUSINESS_CONSTRAINTS:
+
+PLANNING_DEPTH:
+
+- brief
+- standard
+- detailed
+
+REQUIRES_IMPLEMENTATION_APPROVAL:
+
+- yes
+- no
+- auto
+
 ## Code Review Fields
 
 Use these fields when `TASK_TYPE` is `code-review`.
@@ -222,6 +249,8 @@ REVIEW_RISK_THRESHOLD:
 - For `project-bootstrap`, `INCLUDE_*` fields default to `auto`; use task description and constraints to decide, then explain included/skipped options in the pre-scaffold proposal.
 - For `risk-discovery`, do not implement fixes unless explicitly requested.
 - For `risk-discovery`, default `INCLUDE_MITIGATION_STRATEGIES`, `INCLUDE_DATA_CONSISTENCY_ANALYSIS`, `INCLUDE_AVAILABILITY_ANALYSIS`, and `INCLUDE_DESIGN_FOR_FAILURE_REVIEW` to `yes`.
+- For `business-requirements-planning`, default `PLANNING_DEPTH` to `standard` and `REQUIRES_IMPLEMENTATION_APPROVAL` to `yes`.
+- For `business-requirements-planning`, produce a plan and recommended next task type before implementation.
 - For `code-review`, default `REVIEW_HEAD_REF` to current `HEAD`, `REVIEW_RANGE_MODE` to `full-branch`, `REVIEW_REQUIRE_TESTS` to `auto`, and `REVIEW_APPLY_FIXES` to `no`.
 - For `code-review`, when `REVIEW_RANGE_MODE` is `full-branch`, review all branch changes from the merge-base/first divergent commit through `REVIEW_HEAD_REF`.
 - For `code-review`, ask for approval before writing or applying fixes.

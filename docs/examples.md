@@ -215,6 +215,16 @@ Revert the checkout calculation change.
 
 ## Task Prompt Examples
 
+Business requirements planning:
+
+```text
+Use AGENTS.md in low-token mode.
+Treat this as a business-requirements-planning task.
+Load only required core files, tasks/business-requirements-planning.md, and the active task source.
+Turn the business requirements into an implementation-ready plan with acceptance criteria, risks, validation strategy, and a recommended next task type.
+Do not implement code until I approve the plan.
+```
+
 Bug fix:
 
 ```text

@@ -53,6 +53,7 @@ core/
 
 tasks/
   bug-fix.md
+  business-requirements-planning.md
   code-review.md
   feature-build.md
   project-bootstrap.md
@@ -157,6 +158,7 @@ The `tasks/` files define reusable workflows for common work types.
 Use one task layer per task:
 
 - `bug-fix.md` for diagnosing and correcting broken behavior
+- `business-requirements-planning.md` for converting business requirements into an implementation-ready plan before coding
 - `code-review.md` for reviewing branch commits/diffs before applying fixes
 - `feature-build.md` for adding new behavior
 - `project-bootstrap.md` for scaffolding new projects, apps, services, packages, or monorepos
@@ -324,13 +326,14 @@ An example `runtime/active-task.md` is available in `docs/examples.md`.
 
 ## Recommended Prompts
 
-Task prompt examples for bug fixes, feature builds, code reviews, project bootstraps, refactors, performance work, and risk discovery are in `docs/examples.md`.
+Task prompt examples for business requirements planning, bug fixes, feature builds, code reviews, project bootstraps, refactors, performance work, and risk discovery are in `docs/examples.md`.
 
 ## How To Choose The Task Type
 
 Choose the task type based on the dominant risk:
 
 - If behavior is wrong, use `bug-fix`.
+- If the goal is to turn business requirements into a plan before coding, use `business-requirements-planning`.
 - If the goal is to review branch commits or pull-request changes before applying fixes, use `code-review`.
 - If new behavior is being added, use `feature-build`.
 - If a new project, app, service, package, or monorepo is being created, use `project-bootstrap`.
