@@ -11,6 +11,7 @@ TASK_TYPE:
 - bug-fix
 - business-requirements-planning
 - code-review
+- create-jira-ticket
 - feature-build
 - project-bootstrap
 - refactor
@@ -230,6 +231,46 @@ REVIEW_RISK_THRESHOLD:
 - high
 - all
 
+## Jira Ticket Fields
+
+Use these fields when `TASK_TYPE` is `create-jira-ticket`.
+
+JIRA_SITE:
+
+JIRA_PROJECT_KEY:
+
+JIRA_ISSUE_TYPE:
+
+JIRA_SUMMARY:
+
+JIRA_DESCRIPTION:
+
+JIRA_PRIORITY:
+
+JIRA_LABELS:
+
+JIRA_COMPONENTS:
+
+JIRA_ASSIGNEE:
+
+JIRA_PARENT:
+
+JIRA_ACCEPTANCE_CRITERIA:
+
+JIRA_DUE_DATE:
+
+JIRA_CREATE_MODE:
+
+- auto
+- approval-required
+- draft
+
+JIRA_DEDUPLICATION_JQL:
+
+JIRA_CREATED_ISSUE_KEY:
+
+JIRA_CREATED_ISSUE_URL:
+
 ## Field Rules
 
 - `TASK_DESCRIPTION` must describe the desired outcome, not only the implementation idea.
@@ -238,6 +279,8 @@ REVIEW_RISK_THRESHOLD:
 - `RELATED_FILES` may be empty at task start, but the agent should update its working context by inspecting the repository.
 - `CONSTRAINTS` should include compatibility, security, data, latency, rollout, style, or dependency limits.
 - `NON_GOALS` prevents unrelated expansion.
+- For `create-jira-ticket`, `JIRA_PROJECT_KEY`, `JIRA_ISSUE_TYPE`, `JIRA_SUMMARY`, and `JIRA_DESCRIPTION` are required before creating an issue.
+- For `create-jira-ticket`, `JIRA_CREATE_MODE` defaults to `auto` when omitted.
 - `VALIDATION_PLAN` should name tests, checks, manual verification, or the reason validation is not available.
 - `ROLLBACK_PLAN` is required for medium/high-impact changes.
 - `TDD_MODE` defaults to `auto`. Use `required` to force red-green-refactor when feasible, or `skip` only when tests are impractical or out of scope.

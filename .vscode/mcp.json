@@ -1,0 +1,15 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "jira-mcp-url",
+      "description": "Jira MCP server URL"
+    }
+  ],
+  "servers": {
+    "jira": {
+      "type": "http",
+      "url": "${input:jira-mcp-url}"
+    }
+  }
+}

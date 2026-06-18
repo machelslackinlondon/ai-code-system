@@ -57,9 +57,28 @@ REVIEW_APPLY_FIXES={{REVIEW_APPLY_FIXES}}
 REVIEW_FOCUS_AREAS={{REVIEW_FOCUS_AREAS}}
 REVIEW_RISK_THRESHOLD={{REVIEW_RISK_THRESHOLD}}
 
+JIRA_SITE={{JIRA_SITE}}
+JIRA_PROJECT_KEY={{JIRA_PROJECT_KEY}}
+JIRA_ISSUE_TYPE={{JIRA_ISSUE_TYPE}}
+JIRA_SUMMARY={{JIRA_SUMMARY}}
+JIRA_DESCRIPTION={{JIRA_DESCRIPTION}}
+JIRA_PRIORITY={{JIRA_PRIORITY}}
+JIRA_LABELS={{JIRA_LABELS}}
+JIRA_COMPONENTS={{JIRA_COMPONENTS}}
+JIRA_ASSIGNEE={{JIRA_ASSIGNEE}}
+JIRA_PARENT={{JIRA_PARENT}}
+JIRA_ACCEPTANCE_CRITERIA={{JIRA_ACCEPTANCE_CRITERIA}}
+JIRA_DUE_DATE={{JIRA_DUE_DATE}}
+JIRA_CREATE_MODE={{JIRA_CREATE_MODE}}
+JIRA_DEDUPLICATION_JQL={{JIRA_DEDUPLICATION_JQL}}
+JIRA_CREATED_ISSUE_KEY={{JIRA_CREATED_ISSUE_KEY}}
+JIRA_CREATED_ISSUE_URL={{JIRA_CREATED_ISSUE_URL}}
+
 For project-bootstrap with REQUIRES_PRE_SCAFFOLD_APPROVAL=yes/auto, produce the pre-scaffold proposal from tasks/project-bootstrap.md before creating files and wait for approval when required.
 
 For code-review, do not write or apply fixes unless REVIEW_APPLY_FIXES=yes and the user approves the proposed change.
+
+For create-jira-ticket, use tasks/create-jira-ticket.md. Use Jira MCP tools when available, deduplicate before creation, and update runtime/session-notes.md with the created or existing issue key and URL.
 
 Before finishing, update runtime/session-notes.md unless asked not to.
 ```

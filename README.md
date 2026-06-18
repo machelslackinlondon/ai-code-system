@@ -103,6 +103,8 @@ For saved prompts, use the templates in `prompts/`:
 
 Available task archetypes include bug fixes, business requirements planning, code reviews, feature builds, project bootstrapping, refactors, performance optimization, and risk discovery.
 
+Use `tasks/create-jira-ticket.md` when you want an agent to draft or create Jira issues through a configured Jira MCP server. See `docs/jira-ticket-automation.md` for setup, required fields, create modes, and automation examples.
+
 The project-bootstrap task supports new single-project or monorepo scaffolds. See `tasks/project-bootstrap.md` for the default stack and scaffold expectations.
 
 For project-bootstrap placeholder workflows, set `REQUIRES_PRE_SCAFFOLD_APPROVAL=yes` when you want the agent to propose project shape, services/packages, tool choices, trade-offs, and included/skipped capabilities before creating files.

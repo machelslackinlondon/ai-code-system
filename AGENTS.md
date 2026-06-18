@@ -16,6 +16,7 @@ Load only what is needed:
    - `tasks/bug-fix.md`
    - `tasks/business-requirements-planning.md`
    - `tasks/code-review.md`
+   - `tasks/create-jira-ticket.md`
    - `tasks/feature-build.md`
    - `tasks/project-bootstrap.md`
    - `tasks/refactor.md`
@@ -56,6 +57,8 @@ When updating this prompt system, update the source-of-truth file first. Other d
 
 Standard fields: `TASK_NAME`, `TASK_TYPE`, `TASK_DESCRIPTION`, `IMPACT_LEVEL`, `AFFECTED_SYSTEMS`, `RELATED_FILES`, `CONSTRAINTS`, `NON_GOALS`, `INPUTS`, `EXPECTED_OUTPUT`, `VALIDATION_PLAN`, `ROLLBACK_PLAN`, `TDD_MODE`.
 
+Jira ticket fields: `JIRA_SITE`, `JIRA_PROJECT_KEY`, `JIRA_ISSUE_TYPE`, `JIRA_SUMMARY`, `JIRA_DESCRIPTION`, `JIRA_PRIORITY`, `JIRA_LABELS`, `JIRA_COMPONENTS`, `JIRA_ASSIGNEE`, `JIRA_PARENT`, `JIRA_ACCEPTANCE_CRITERIA`, `JIRA_DUE_DATE`, `JIRA_CREATE_MODE`, `JIRA_DEDUPLICATION_JQL`, `JIRA_CREATED_ISSUE_KEY`, `JIRA_CREATED_ISSUE_URL`.
+
 Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`, `DEPLOYMENT_TARGET`, `DEFAULT_STACK`, `SCAFFOLD_REQUIREMENTS`.
 
 ## Agent Behavior
@@ -81,6 +84,7 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 - `bug-fix.md`: broken or unexpected behavior.
 - `business-requirements-planning.md`: convert business requirements into an implementation-ready plan before coding.
 - `code-review.md`: review branch commits/diffs for correctness, risk, tests, security, performance, scalability, and maintainability.
+- `create-jira-ticket.md`: create, draft, or verify Jira ticket creation through the configured Jira MCP server.
 - `feature-build.md`: new behavior.
 - `project-bootstrap.md`: new project, app, service, package, or monorepo.
 - `refactor.md`: behavior-preserving structure change.
