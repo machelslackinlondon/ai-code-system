@@ -1,6 +1,6 @@
 # Codex IDE Prompt System
 
-Portable "Core Rules + Task Layer" instructions for AI coding agents.
+Portable "Core Rules + Task Layer + Skills" instructions for AI coding agents.
 
 ## Load Order
 
@@ -12,7 +12,11 @@ Load only what is needed:
    - Refactor work: `core/refactoring-principles.md`
    - Architecture/design pattern decisions: `core/design-patterns.md`
    - Review/audit tasks: `core/assessment-alignment.md`
-3. One task layer:
+3. Skills alternative, when the agent/runtime supports project skills:
+   - Use the matching skill from `.agents/skills/<skill-name>/SKILL.md`.
+   - Prefer a matching skill over manually loading the equivalent `tasks/*.md` file.
+   - Do not load every skill; load only the matching skill body.
+4. Task-layer fallback, or when the prompt explicitly asks for tasks:
    - `tasks/bug-fix.md`
    - `tasks/business-requirements-planning.md`
    - `tasks/code-review.md`
@@ -22,10 +26,10 @@ Load only what is needed:
    - `tasks/refactor.md`
    - `tasks/performance-optimization.md`
    - `tasks/risk-discovery.md`
-4. Active task source:
+5. Active task source:
    - placeholders from the current prompt, or
    - `runtime/active-task.md`
-5. Continuity, if present: `runtime/session-notes.md`
+6. Continuity, if present: `runtime/session-notes.md`
 
 If placeholders and `runtime/active-task.md` both exist, placeholders win for the current session.
 
@@ -33,16 +37,17 @@ If placeholders and `runtime/active-task.md` both exist, placeholders win for th
 
 1. Core safety rules
 2. Current user request
-3. Selected task layer
+3. Selected skill or task layer
 4. Active task details
 5. Session notes
 
-Task layers may specialize behavior but must not weaken core safety rules.
+Skills and task layers may specialize behavior but must not weaken core safety rules.
 
 ## Token Budget Rules
 
 - Do not load README or VS Code guide files unless asked.
 - Do not load `docs/examples.md` unless examples are requested.
+- Do not load every skill; load only the matching skill.
 - Do not load every task file; load only the selected task layer.
 - Do not load optional core modules unless relevant.
 - Keep `runtime/session-notes.md` concise: decisions, changed files, validation, open items, risks, next step.
@@ -78,6 +83,22 @@ Project bootstrap fields: `IS_MONOREPO`, `SERVICES`, `APP_NAME`, `SQL_DATABASE`,
 - Use TDD for bug fixes, behavior-changing features, and refactors with weak coverage when feasible.
 - Report changes, validation, and residual risk.
 - Update `runtime/session-notes.md` before finishing when continuity matters.
+
+## Skill Selection
+
+Prefer the matching project-local skill from `.agents/skills/` when the runtime supports skills or the user invokes a skill explicitly:
+
+- `bug-fix`: broken or unexpected behavior.
+- `business-requirements-planning`: convert business goals into an implementation-ready plan before coding.
+- `code-review`: review branch commits/diffs for correctness, risk, tests, security, performance, scalability, and maintainability.
+- `create-jira-ticket`: create, draft, or verify Jira ticket creation through the configured Jira MCP server.
+- `feature-build`: new behavior.
+- `project-bootstrap`: new project, app, service, package, or monorepo.
+- `refactor`: behavior-preserving structure change.
+- `performance-optimization`: latency, throughput, memory, cost, or scalability.
+- `risk-discovery`: inspect non-functional limitations and produce a risk register with mitigations.
+
+Use the matching `tasks/*.md` file when skills are unavailable, when a prompt explicitly asks for task layers, or when maintaining task-layer compatibility.
 
 ## Task Selection
 
