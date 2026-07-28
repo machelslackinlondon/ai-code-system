@@ -43,6 +43,26 @@
         "assumptions-and-tradeoffs",
         "task-completion-workflow"
       ]
+    },
+    {
+      "title": "CI & Security",
+      "description": "Specialist skills for CI diagnosis, static analysis, and software supply-chain risk.",
+      "skills": [
+        "gh-fix-ci",
+        "codeql",
+        "supply-chain-risk-auditor"
+      ]
+    },
+    {
+      "title": "Web, Data & Cloud",
+      "description": "Stack-specific skills for browser testing, accessibility, React, Postgres, and Azure operations.",
+      "skills": [
+        "playwright-cli",
+        "accessibility",
+        "vercel-react-best-practices",
+        "supabase-postgres-best-practices",
+        "azure-diagnostics"
+      ]
     }
   ]
 }

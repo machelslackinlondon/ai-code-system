@@ -4,44 +4,44 @@ Keep concise. Update before finishing when context should survive the next promp
 
 ## Goal
 
-Add project-local skills as an alternative to task layers without deleting existing tasks.
+Add the recommended skills.sh specialist skills to the project-local Codex skill catalog.
 
 ## Source
 
-User request on 2026-06-18: create the necessary skill files and update README instructions for using skills as an alternative to tasks.
+User request on 2026-07-24 following a repository skill inventory and skills.sh comparison.
 
 ## Decisions
 
-- Kept all existing `tasks/*.md` files unchanged.
-- Added project-local Codex skills under `.agents/skills/`.
-- Added `skills.sh.json` to group skills for the Skills.sh repository page.
-- Updated `AGENTS.md` so skills are preferred when supported and task layers remain the fallback.
-- Updated `README.md` with skills-mode usage and CLI examples.
+- Vendored eight reviewed skills at pinned upstream commits; provenance and licenses are recorded in `THIRD_PARTY_SKILLS.md`.
+- Replaced the removed skills.sh `azure-observability` source with Microsoft's maintained `azure-diagnostics` skill.
+- Made `codeql`, `supply-chain-risk-auditor`, `playwright-cli`, and `azure-diagnostics` explicit-only because they can create artifacts, install tools, alter browser state, or interact with cloud systems.
+- Added local safety overlays without weakening the upstream workflows.
+- Kept all existing task layers and project-local skills unchanged except for catalog and selection guidance.
 
 ## Changed
 
-- `.agents/skills/*/SKILL.md`
-- `.agents/skills/*/agents/openai.yaml`
-- `AGENTS.md`
-- `README.md`
-- `skills.sh.json`
-- `runtime/session-notes.md`
+- Added eight `.agents/skills/*` directories and Codex UI metadata.
+- Updated `AGENTS.md` and `skills.sh.json` with the new specialist skills.
+- Added `THIRD_PARTY_SKILLS.md` for pinned-source and license tracking.
+- Updated `runtime/session-notes.md`.
 
 ## Validation
 
-- Ran `quick_validate.py` for all nine `.agents/skills/*` folders; all are valid.
-- Ran `python3 -m json.tool skills.sh.json`; JSON is valid.
-- Ran a placeholder scan across the new skills and docs; no scaffold placeholders remain.
-- Ran `git diff --check`; no whitespace errors.
+- Ran `quick_validate.py` for all eight imported skills; all passed.
+- Validated 32 unique skill names, matching catalog entries, and parseable `agents/openai.yaml` files.
+- Validated all local links from the eight imported `SKILL.md` files.
+- Parsed `skills.sh.json`, compiled the bundled `gh-fix-ci` Python script, and exercised its `--help`.
+- Ran `git diff --check`; vendored upstream Markdown retains known whitespace warnings, including intentional hard breaks and one CRLF-formatted reference file.
 
 ## Open Items
 
-- Decide later whether to keep tasks and skills permanently in parallel or eventually deprecate task-layer files.
+- External executables and services (`gh`, CodeQL, Playwright CLI, Azure CLI/MCP) were not installed or authenticated.
 
 ## Risks
 
-- Skills and tasks can drift if both are maintained separately; future changes should update both or declare one source of truth.
+- Vendored skills can drift from upstream; update only after reviewing a new pinned commit.
+- Tool-heavy skills remain subject to repository approval, sandbox, and destructive-action rules even when explicitly invoked.
 
 ## Next
 
-- Use skills mode for new workflows, or keep task layers as the fallback compatibility path.
+- Invoke tool-heavy additions explicitly, for example `$codeql` or `$azure-diagnostics`; allow the reference-only stack skills to match by description.

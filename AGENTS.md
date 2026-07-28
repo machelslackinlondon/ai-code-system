@@ -97,6 +97,14 @@ Prefer the matching project-local skill from `.agents/skills/` when the runtime 
 - `refactor`: behavior-preserving structure change.
 - `performance-optimization`: latency, throughput, memory, cost, or scalability.
 - `risk-discovery`: inspect non-functional limitations and produce a risk register with mitigations.
+- `gh-fix-ci`: inspect and diagnose failing GitHub Actions checks before proposing a fix.
+- `codeql`: run explicit, deep CodeQL security analysis and process its results.
+- `supply-chain-risk-auditor`: explicitly assess dependency maintenance and takeover risk.
+- `playwright-cli`: explicitly automate or test browser workflows with Playwright.
+- `accessibility`: audit or improve web interfaces against WCAG 2.2.
+- `vercel-react-best-practices`: apply React and Next.js performance guidance.
+- `supabase-postgres-best-practices`: review Postgres queries, schemas, connection management, and RLS.
+- `azure-diagnostics`: explicitly triage Azure production and observability issues.
 
 Use the matching `tasks/*.md` file when skills are unavailable, when a prompt explicitly asks for task layers, or when maintaining task-layer compatibility.
 
