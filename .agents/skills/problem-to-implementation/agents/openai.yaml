@@ -1,0 +1,4 @@
+interface:
+  display_name: "Problem to Implementation"
+  short_description: "Turn validated reasoning into production-ready code"
+  default_prompt: "Use $problem-to-implementation to reason through this problem before implementing and testing it."
