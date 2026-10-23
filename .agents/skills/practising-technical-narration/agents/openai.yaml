@@ -1,0 +1,6 @@
+interface:
+  display_name: "Technical Narration Practice"
+  short_description: "Rehearse and review narrated technical workflows"
+  default_prompt: "Use $practising-technical-narration to create a realistic technical narration exercise and coach me through it."
+policy:
+  allow_implicit_invocation: true
